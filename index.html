@@ -2,11 +2,2328 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pilotage commercial GAUTIER — test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pilotage commercial GAUTIER</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20256%20256%22%20width%3D%22256%22%20height%3D%22256%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%230b1d3a%22/%3E%3Cstop%20offset%3D%220.6%22%20stop-color%3D%22%232557c7%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%230f8a4b%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20x%3D%228%22%20y%3D%228%22%20width%3D%22240%22%20height%3D%22240%22%20rx%3D%2256%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Ctext%20x%3D%22128%22%20y%3D%22172%22%20text-anchor%3D%22middle%22%20font-family%3D%22Inter%2C%20Arial%2C%20sans-serif%22%20font-size%3D%22150%22%20font-weight%3D%22800%22%20fill%3D%22%23ffffff%22%3EG%3C/text%3E%0A%20%20%3Cpath%20d%3D%22M52%20206%20L100%20160%20L134%20178%20L204%20110%22%20fill%3D%22none%22%20stroke%3D%22%239fe8c4%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%0A%20%20%3Ccircle%20cx%3D%22204%22%20cy%3D%22110%22%20r%3D%2210%22%20fill%3D%22%239fe8c4%22/%3E%0A%3C/svg%3E">
+<style>
+:root{--bg:#eef2f8;--card:#fff;--soft:#f5f7fb;--soft2:#e8eefb;--tx:#121a2b;--mut:#5a6882;--bd:#dde3ee;--pri:#12306b;--acc:#2557c7;--ok:#0f8a4b;--mid:#b26a00;--low:#c0392b;--okb:#e3f6ec;--midb:#fff3dc;--lowb:#fde8e5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Outfit",Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom,0px)}
+.hd{background:linear-gradient(135deg,#0b1d3a,#173a74 55%,#2557c7);color:#fff;padding:16px;padding-top:calc(16px + env(safe-area-inset-top,0px))}
+.hd .brand{font-size:1.35rem;font-weight:800}
+.sync{font-size:.74rem;opacity:.92;margin-top:4px}
+.sync.warn{color:#ffd58a}
+.nv{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--bd);overflow-x:auto}
+.nv div{display:flex;gap:6px;padding:8px 12px;max-width:1040px;margin:0 auto}
+.nv button{border:0;background:none;color:var(--mut);font-family:inherit;font-weight:600;font-size:.86rem;padding:7px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.nv button.on{background:var(--pri);color:#fff}
+main{max-width:1040px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:16px}
+.card h2{font-size:1.1rem;margin:0 0 2px}
+.note{font-size:.84rem;color:var(--mut);margin:0 0 10px}
+.sec{font-size:.72rem;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.07em;margin:18px 0 6px;border-top:1px solid var(--bd);padding-top:12px}
+.sec:first-child{border-top:0;margin-top:0;padding-top:0}
+label{display:block;font-size:.78rem;font-weight:600;color:var(--mut);margin:10px 0 4px}
+input,select,textarea{width:100%;padding:10px 12px;border-radius:11px;border:1px solid var(--bd);background:var(--soft);color:var(--tx);font-family:inherit;font-size:.95rem}
+textarea{min-height:110px;resize:vertical}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{flex:1;min-width:120px;padding:11px 14px;border:0;border-radius:11px;background:var(--pri);color:#fff;font-family:inherit;font-weight:600;font-size:.9rem;cursor:pointer;text-align:center}
+.btn:disabled{opacity:.5;cursor:default}
+.btn.alt{background:var(--acc)}
+.btn.ghost{background:var(--soft2);color:var(--pri)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:12px}
+.tile{border:1px solid var(--bd);border-radius:14px;padding:12px 14px;background:var(--card)}
+.tl{font-size:.7rem;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+.tv{font-size:1.3rem;font-weight:800;margin:2px 0}
+.ts{font-size:.78rem;color:var(--mut)}
+.pill{display:inline-block;font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.ok-p{color:var(--ok);background:var(--okb)}.mid-p{color:var(--mid);background:var(--midb)}.low-p{color:var(--low);background:var(--lowb)}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th,td{padding:8px 6px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+th{color:var(--mut);font-weight:600;font-size:.75rem}
+.item{display:flex;justify-content:space-between;gap:8px;align-items:center;border:1px solid var(--bd);border-radius:12px;padding:9px 11px;margin-top:6px;font-size:.86rem}
+.item button{border:0;background:var(--soft2);color:var(--pri);border-radius:8px;padding:5px 10px;cursor:pointer;font-weight:700;font-family:inherit}
+.item button.arm{background:var(--low);color:#fff}
+.acts{display:flex;gap:6px;flex-shrink:0}
+.out{white-space:pre-wrap;background:var(--soft);border:1px solid var(--bd);border-radius:12px;padding:12px;font-size:.88rem;margin-top:10px}
+.diag{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;background:var(--soft);border-radius:10px;padding:10px;white-space:pre-wrap;word-break:break-all}
+table.resp th{font-size:.72rem}
+table.resp tr.tot td{font-weight:800;background:var(--soft2)}
+table.resp tr.alerte td{background:var(--lowb)}
+table.resp tr.inactif td{color:var(--mut)}
+table.resp input{min-width:90px;padding:7px 9px}
+.stat{display:inline-block;font-size:.74rem;font-weight:700;padding:3px 9px;border-radius:999px}
+.st-todo{background:var(--soft2);color:var(--mut)}
+.st-en{color:var(--mid);background:var(--midb)}
+.st-fait{color:var(--ok);background:var(--okb)}
+.st-bloq{color:var(--low);background:var(--lowb)}
+@media (max-width:640px){
+  table.resp thead{display:none}
+  table.resp,table.resp tbody,table.resp tr{display:block;width:100%}
+  table.resp tr{border:1px solid var(--bd);border-radius:14px;padding:8px 12px;margin:8px 0;background:var(--card)}
+  table.resp td{display:flex;justify-content:space-between;align-items:center;gap:10px;border:0;padding:5px 0;text-align:right;white-space:normal}
+  table.resp td::before{content:attr(data-label);font-weight:600;color:var(--mut);text-align:left;font-size:.8rem}
+  table.resp td:first-child{font-weight:700;font-size:1rem;display:block;text-align:left}
+  table.resp td:first-child::before{content:none}
+  table.resp input{min-width:0;width:110px}
+  table.resp tr.tot{background:var(--soft2)}
+}
+#toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(140px);background:var(--pri);color:#fff;padding:10px 16px;border-radius:12px;font-size:.88rem;transition:transform .25s;z-index:20;max-width:92vw;text-align:center}
+#toast.show{transform:translateX(-50%) translateY(0)}
+.tab{display:none}.tab.on{display:block}
+.card-line{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
+
+/* ===== Présentation : typographie, cartes et tableaux ===== */
+body{font-family:"Outfit","Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-feature-settings:"cv11","ss01";-webkit-font-smoothing:antialiased;background:radial-gradient(1200px 500px at 100% -10%,rgba(37,87,199,.08),transparent 60%),radial-gradient(900px 400px at -10% 0%,rgba(15,138,75,.05),transparent 55%),var(--bg);background-attachment:fixed}
+.hd{box-shadow:0 10px 30px rgba(11,29,58,.18)}
+.hd .brand{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.sync{font-weight:500}
+.nv{backdrop-filter:saturate(1.4) blur(10px);background:rgba(255,255,255,.92)}
+.nv button{transition:background .2s,color .2s,transform .15s;font-weight:600}
+.nv button:hover{background:var(--soft2);color:var(--pri)}
+.nv button:active{transform:scale(.97)}
+main{padding:20px 16px 40px}
+.card{border-radius:22px;padding:22px;border:1px solid rgba(221,227,238,.8);box-shadow:0 1px 2px rgba(18,48,107,.04),0 10px 28px rgba(18,48,107,.07);transition:box-shadow .25s}
+.card h2{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;color:var(--pri)}
+.note{font-size:.86rem;line-height:1.55}
+.sec{font-size:.7rem;font-weight:800;letter-spacing:.1em;color:var(--mut);border-top:1px solid var(--bd);margin:22px 0 10px;padding-top:14px}
+label{font-size:.76rem;font-weight:700;letter-spacing:.01em;color:var(--mut);margin:12px 0 5px}
+input,select,textarea{border-radius:12px;padding:11px 13px;transition:border-color .2s,box-shadow .2s,background .2s;background:#f7f9fd}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--acc);box-shadow:0 0 0 4px rgba(37,87,199,.14);background:#fff}
+input[data-money],#sCa,#cOc{font-variant-numeric:tabular-nums;font-weight:700;letter-spacing:.01em}
+.btn{border-radius:13px;padding:12px 16px;box-shadow:0 4px 12px rgba(18,48,107,.18);transition:transform .15s,box-shadow .2s,filter .2s;letter-spacing:.01em}
+.btn:hover{filter:brightness(1.06);box-shadow:0 8px 18px rgba(18,48,107,.22)}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn.ghost{box-shadow:none;background:var(--soft2)}
+.btn.ghost:hover{background:#dbe5fb}
+.tiles{gap:14px;grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
+.tile{position:relative;overflow:hidden;border-radius:20px;padding:16px 16px 14px 18px;background:linear-gradient(180deg,#ffffff 0%,#f7f9fe 100%);border:1px solid rgba(221,227,238,.9);box-shadow:0 2px 8px rgba(18,48,107,.05);transition:transform .2s,box-shadow .2s}
+.tile:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(18,48,107,.12)}
+.tile::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:0 4px 4px 0;background:linear-gradient(180deg,var(--acc),var(--ok))}
+.tile:nth-child(3)::before{background:linear-gradient(180deg,#7a4fd6,#b58cff)}
+.tile:nth-child(4)::before{background:linear-gradient(180deg,#d98200,#f0b54a)}
+.tile:nth-child(5)::before{background:linear-gradient(180deg,#0e8f8f,#3fcf84)}
+.tl{font-size:.68rem;font-weight:800;letter-spacing:.09em;color:var(--mut)}
+.tv{font-size:clamp(1.05rem,1.9vw,1.3rem);font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--tx);margin:4px 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ts{font-size:.8rem;line-height:1.45}
+.scroll{border:1px solid var(--bd);border-radius:16px;overflow:hidden;background:#fff}
+.scroll{overflow-x:auto}
+table.resp{border-collapse:separate;border-spacing:0;font-variant-numeric:tabular-nums}
+table.resp thead th{position:sticky;top:0;background:#f3f6fc;color:var(--mut);font-size:.64rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:10px 9px;white-space:nowrap;border-bottom:1px solid var(--bd);z-index:1}
+table.resp td{padding:10px 9px;border-bottom:1px solid #edf1f8;font-size:.86rem;transition:background .15s}
+table.resp tbody tr:hover td{background:#f5f8ff}
+table.resp tbody tr:last-child td{border-bottom:0}
+table.resp td:first-child{font-weight:700;color:var(--tx)}
+table.resp tr.tot td{background:linear-gradient(90deg,#eaf0fc,#f4f7fd);font-weight:800;border-top:2px solid var(--bd);color:var(--pri)}
+table.resp tr.alerte td{background:#fff3f1}
+.pill{font-size:.76rem;font-weight:800;padding:4px 10px;border-radius:999px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.stat{font-size:.74rem;font-weight:800;padding:4px 10px;letter-spacing:.01em}
+.item{border-radius:16px;box-shadow:0 1px 3px rgba(18,48,107,.04);transition:box-shadow .2s}
+.item:hover{box-shadow:0 6px 18px rgba(18,48,107,.08)}
+.out{border-radius:16px;line-height:1.65;font-size:.9rem;background:#f8fafd}
+.diag{border-radius:14px;line-height:1.7}
+#toast{border-radius:14px;box-shadow:0 12px 30px rgba(11,29,58,.3);font-weight:600}
+#dChart{padding:6px 2px}
+@media (max-width:640px){
+  .card{padding:16px;border-radius:20px}
+  table.resp tr{border-radius:18px;box-shadow:0 2px 10px rgba(18,48,107,.06);border-color:rgba(221,227,238,.9)}
+  table.resp td{font-size:.92rem}
+  .tv{font-size:1.35rem}
+}
+/* Barre de navigation agrandie, à la taille de l'ensemble du site */
+.hd{padding:14px 18px;padding-top:calc(14px + env(safe-area-inset-top,0px))}
+.hd .brand{font-size:1.7rem}
+.sync{font-size:.88rem}
+.nv div{gap:8px;padding:12px 18px;max-width:1040px}
+.nv button{font-size:1rem;padding:11px 20px;border-radius:14px;line-height:1.2}
+.nv button.on{box-shadow:0 6px 16px rgba(18,48,107,.22)}
+@media (max-width:640px){
+  .hd .brand{font-size:1.4rem}
+  .nv div{padding:10px 12px;gap:6px}
+  .nv button{font-size:.95rem;padding:10px 16px}
+}
+
+/* ===== En-tête avec logo ===== */
+.hd{position:relative;overflow:hidden;background:linear-gradient(135deg,#0b1d3a 0%,#173a74 55%,#2557c7 100%);box-shadow:0 10px 30px rgba(11,29,58,.2)}
+.hd::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 220px at 85% -20%,rgba(159,232,196,.22),transparent 60%),radial-gradient(500px 200px at 0% 120%,rgba(240,181,74,.18),transparent 60%);pointer-events:none}
+.hd::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,#f0b54a,#3fcf84,#5b8cf0)}
+.hd-in{position:relative;display:flex;align-items:center;gap:16px;max-width:1040px;margin:0 auto}
+.logo{flex:0 0 auto;width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);box-shadow:0 8px 20px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.25);padding:5px;display:grid;place-items:center}
+.logo svg{width:100%;height:100%;border-radius:14px;display:block}
+.hd .brand{color:#fff;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.hd .brand span{font-weight:700;color:#9fe8c4;letter-spacing:.04em}
+.sync{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:.8rem;font-weight:600;color:#e9f1ff}
+.sync::before{content:"";width:8px;height:8px;border-radius:50%;background:#3fcf84;box-shadow:0 0 0 3px rgba(63,207,132,.25)}
+.sync.warn{color:#ffe3a3}
+.sync.warn::before{background:#f0b54a;box-shadow:0 0 0 3px rgba(240,181,74,.25)}
+@media (max-width:640px){
+  .hd-in{gap:12px}
+  .logo{width:38px;height:38px;border-radius:11px}
+  .hd .brand{font-size:1.05rem}
+  .sync{font-size:.72rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+}
+
+/* Police du site : Outfit */
+.hd .brand{font-family:"Outfit",Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-weight:600;letter-spacing:.005em}
+.hd .brand span{font-family:"Outfit",Inter,system-ui,sans-serif;font-weight:700;letter-spacing:.06em}
+
+/* Texte d'analyse et de rapport : aligné à gauche, lisible, sans être trop étiré */
+.out,#anOut,#rAnaly,#avOut,#rOut,#rMsgs,#rHisto{text-align:left}
+.out{padding:14px 16px;margin:10px 0 2px;font-size:.92rem;line-height:1.7;max-width:76ch;white-space:pre-wrap;word-break:break-word;color:var(--tx)}
+#anOut{padding:14px 16px;margin:10px 0 2px;font-size:.92rem;line-height:1.7;max-width:76ch;white-space:pre-wrap;word-break:break-word;color:var(--tx);background:#f8fafd;border:1px solid var(--bd);border-radius:16px;text-align:left}
+#rOut{text-align:left;line-height:1.65;font-size:.92rem;padding:12px 14px;max-width:100%}
+#rMsgs .out{max-width:none}
+.note+.out,.sec+.out{margin-top:6px}
+
+/* Stratégie : plan d'actions, avis et plan sur 30 jours alignés à gauche */
+#t-strat,#t-strat .card,#t-strat .card *:not(button):not(input):not(select):not(textarea):not(svg):not(circle):not(line):not(polyline){text-align:left}
+#t-strat table.resp td,#t-strat table.resp th{text-align:left}
+#t-strat table.resp td.num{text-align:right}
+#avOut,#aList,#tPrev{text-align:left}
+#avOut .out,#tPrev .item{text-align:left;line-height:1.65}
+
+/* Boutons à l'intérieur des tableaux : même style que le reste de l'application */
+table.resp .acts button,table.resp button{border:0;background:var(--soft2);color:var(--pri);border-radius:9px;padding:6px 11px;font-family:inherit;font-weight:700;font-size:.78rem;cursor:pointer;transition:background .2s}
+table.resp button:hover{background:#dbe5fb}
+table.resp button.arm{background:var(--low);color:#fff}
+
+/* Tableau de bord : tout le contenu centré */
+#t-dash,#t-dash *{text-align:center}
+#t-dash table.resp td,#t-dash table.resp th{text-align:center}
+#t-dash table.resp td:first-child{text-align:center}
+#t-dash .tile{text-align:center}
+#t-dash .tl,#t-dash .tv,#t-dash .ts{text-align:center}
+#t-dash #dPeriod{text-align:center}
+#t-dash #dChart{text-align:center}
+#t-dash #dChart svg{display:block;margin:0 auto}
+#t-dash .item{justify-content:center;text-align:center}
+@media (max-width:640px){
+  #t-dash table.resp td{justify-content:space-between;text-align:right}
+  #t-dash table.resp td::before{text-align:left}
+  #t-dash table.resp td:first-child{justify-content:center;text-align:center}
+}
+
+/* Saisie : tout le contenu aligné à gauche */
+#t-saisie,#t-saisie *:not(svg):not(circle):not(line):not(polyline):not(rect):not(text){text-align:left}
+#t-saisie table.resp td,#t-saisie table.resp th{text-align:left}
+#t-saisie table.resp td.num{text-align:right}
+#t-saisie .item{text-align:left}
+#t-saisie .acts{justify-content:flex-start}
+
+/* Barre d'actions unique et compacte (écoute, pause, copie) */
+.tools{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:0 0 12px}
+.tools-sel{width:auto;min-width:210px;flex:1 1 210px;max-width:360px;padding:6px 10px;font-size:.8rem;height:34px;border-radius:10px}
+.btn.mini{flex:0 0 auto;min-width:0;padding:6px 14px;font-size:.8rem;height:34px;border-radius:10px;box-shadow:none}
+
+/* Tableau de bord : tout le contenu aligné à gauche (remplace le centrage) */
+#t-dash,#t-dash *:not(svg):not(circle):not(line):not(polyline):not(rect):not(text){text-align:left}
+#t-dash table.resp td,#t-dash table.resp th{text-align:left}
+#t-dash table.resp td:first-child{text-align:left}
+#t-dash .tile,#t-dash .tl,#t-dash .tv,#t-dash .ts,#t-dash #dPeriod{text-align:left}
+#t-dash .item{justify-content:flex-start;text-align:left}
+#t-dash #dChart svg{margin:0}
+@media (max-width:640px){
+  #t-dash table.resp td{justify-content:space-between;text-align:right}
+  #t-dash table.resp td::before{text-align:left}
+  #t-dash table.resp td:first-child{justify-content:flex-start;text-align:left}
+}
+
+/* Bloc « Situation » du tableau de bord : centré */
+#t-dash .card:first-child > h2,#dPeriod,#dAlerts,#dTiles{text-align:center}
+#dTiles{justify-items:center}
+#dTiles .tile{text-align:center;width:100%}
+#dTiles .tl,#dTiles .tv,#dTiles .ts{text-align:center}
+#dAlerts .item{justify-content:center;text-align:center}
+
+/* En-têtes de tableaux : police plus grande et en gras, plus grande que le contenu */
+table.resp thead th{font-size:1rem;font-weight:800;letter-spacing:0;text-transform:none;color:var(--pri);padding:12px 10px;line-height:1.25}
+table.resp td{font-size:.9rem}
+
+/* Journal des modifications : tout aligné à gauche */
+#jList,#jList table.resp th,#jList table.resp td{text-align:left}
+#jList table.resp td:last-child,#jList table.resp th:last-child{text-align:left}
+
+/* Entête des Rapports : titre centré et filtres sur une seule ligne, période assez large */
+#t-rapports > .card:first-child > h2,#t-rapports > .card:first-child > .note{text-align:center}
+#t-rapports > .card:first-child > .g{grid-template-columns:minmax(120px,.9fr) minmax(130px,1fr) minmax(220px,1.9fr) minmax(170px,1.2fr) minmax(170px,1.2fr);align-items:end}
+#t-rapports > .card:first-child > .g select,#t-rapports > .card:first-child > .g input{min-width:0;text-overflow:ellipsis}
+@media (max-width:900px){#t-rapports > .card:first-child > .g{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){#t-rapports > .card:first-child > .g{grid-template-columns:1fr}}
+
+/* Historique journalier : date et commercial alignés à gauche, chiffres à droite */
+#rJour table.resp th:nth-child(-n+2),#rJour table.resp td:nth-child(-n+2){text-align:left}
+</style>
 </head>
-<body style="font-family:Arial,sans-serif;padding:40px">
-<h1>Pilotage commercial GAUTIER</h1>
-<p>Test de publication : si vous voyez cette page, GitHub Pages fonctionne.</p>
+<body>
+<header class="hd"><div class="hd-in"><div class="logo"><svg viewBox="0 0 256 256" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1d3a"/><stop offset="0.6" stop-color="#2557c7"/><stop offset="1" stop-color="#0f8a4b"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="56" fill="url(#logoGrad)"/>
+  <text x="128" y="172" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="150" font-weight="800" fill="#ffffff">G</text>
+  <path d="M52 206 L100 160 L134 178 L204 110" fill="none" stroke="#9fe8c4" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="204" cy="110" r="10" fill="#9fe8c4"/>
+</svg></div><div><div class="brand">Pilotage commercial <span>GAUTIER</span></div><div id="sync" class="sync">Connexion…</div></div></div></header>
+<nav class="nv"><div>
+  <button data-tab="dash" class="on">Tableau de bord</button>
+  <button data-tab="saisie">Saisie</button>
+  <button data-tab="strat">Stratégie</button>
+  <button data-tab="rapports">Rapports</button>
+  <button data-tab="params">Paramètres</button>
+</div></nav>
+
+<main>
+
+<section id="t-dash" class="tab on">
+  <div class="card">
+    <h2>Situation</h2>
+    <div class="note" id="dPeriod"></div>
+    <div id="dAlerts"></div>
+    <div class="tiles" id="dTiles"></div>
+    <div class="sec">Détail par commercial</div>
+    <div id="dTable"></div>
+    <div class="sec">Histogramme : CA groupé par commercial, empilé par semaine</div>
+    <div id="dChart"></div>
+  </div>
+</section>
+
+<section id="t-saisie" class="tab">
+  <div class="card">
+    <h2>Saisie des réalisations</h2>
+    <div class="note">Collez un compte rendu : les données sont lues automatiquement, puis vérifiées avant enregistrement. Ou saisissez directement.</div>
+    <div id="noTeam" class="note" style="color:var(--low);font-weight:600"></div>
+    <label for="xTxt">Compte rendu</label>
+    <textarea id="xTxt" placeholder="Collez ici le ou les comptes rendus"></textarea>
+    <div class="row"><button class="btn" id="xEx">Lire le compte rendu</button></div>
+    <div id="xPrev"></div>
+
+    <div class="sec">Saisie manuelle</div>
+    <div class="g">
+      <div><label for="sDate">Date</label><input id="sDate" type="date"><div id="sDateNote" class="ts" style="margin-top:4px"></div></div>
+      <div><label for="sCom">Commercial</label><select id="sCom"></select></div>
+      <div><label for="sCa">CA (Ar)</label><input id="sCa" data-money inputmode="numeric" placeholder="0"></div>
+      <div><label for="sVis">Clients visités</label><input id="sVis" type="number" min="0"></div>
+      <div><label for="sAct">Clients actifs</label><input id="sAct" type="number" min="0"></div>
+      <div><label for="sRef">Produits référencés</label><input id="sRef" type="number" min="0"></div>
+    </div>
+    <div class="row"><button class="btn" id="sSave">Enregistrer la saisie</button></div>
+
+    <div class="sec">Note manuscrite (retranscription)</div>
+    <div class="g">
+      <div><label for="nDate">Date</label><input id="nDate" type="date"></div>
+      <div><label for="nCom">Commercial</label><select id="nCom"></select></div>
+    </div>
+    <label for="nTxt">Texte retranscrit</label>
+    <textarea id="nTxt"></textarea>
+    <div class="row"><button class="btn" id="nSave">Enregistrer la note</button></div>
+
+    <div class="sec">Dernières saisies</div>
+    <div class="g">
+      <div><label for="fDate">Filtrer par date</label><input id="fDate" type="date"></div>
+      <div><label for="fCom">Filtrer par commercial</label><select id="fCom"></select></div>
+    </div>
+    <div class="row"><button class="btn ghost" id="fReset">Réinitialiser les filtres</button><button class="btn ghost" id="uLast">Annuler la dernière action</button></div>
+    <div id="undo"></div>
+    <div id="sList"></div>
+    <div class="sec">Dernières notes</div>
+    <div id="nList"></div>
+  </div>
+</section>
+
+<section id="t-strat" class="tab">
+  <div class="card">
+    <h2>Stratégie commerciale</h2>
+    <div class="note">Collez une note de stratégie : les actions sont lues, puis vérifiées avant enregistrement.</div>
+    <label for="tTxt">Texte à analyser</label>
+    <textarea id="tTxt"></textarea>
+    <div class="row"><button class="btn" id="tEx">Lire les actions</button></div>
+    <div id="tPrev"></div>
+    <div class="sec">Ajout manuel</div>
+    <div class="g">
+      <div><label for="aZone">Zone / ville</label><input id="aZone"></div>
+      <div><label for="aResp">Responsable</label><input id="aResp"></div>
+      <div><label for="aAct">Action</label><input id="aAct"></div>
+      <div><label for="aEch">Échéance</label><input id="aEch" type="date"></div>
+      <div><label for="aSt">Statut</label><select id="aSt"><option>À faire</option><option>En cours</option><option>Fait</option><option>Bloqué</option></select></div>
+    </div>
+    <div class="row"><button class="btn" id="aSave">Enregistrer l'action</button><button class="btn ghost" id="aCsv">Exporter en CSV</button></div>
+    <div id="aList"></div>
+    <div class="row"><button class="btn ghost" id="stListen">Écouter les actions</button><button class="btn ghost" id="stPause">Pause</button><button class="btn ghost" id="stResume">Reprendre</button><button class="btn ghost" id="stStop">Arrêter</button></div>
+  </div>
+  <div class="card">
+    <h2>Avis impartial de Claude</h2>
+    <div class="note">Analyse franche de vos saisies et de vos actions : points faibles, désaccords, recommandations.</div>
+    <div class="row"><button class="btn alt" id="avGen">Demander un avis (rédigé par Claude)</button><button class="btn" id="avLocal">Générer l'avis chiffré</button></div>
+    <div id="avOut"></div>
+    <div class="row"><button class="btn ghost" id="avListen">Écouter l'avis</button><button class="btn ghost" id="avPause">Pause</button><button class="btn ghost" id="avResume">Reprendre</button><button class="btn ghost" id="avStop">Arrêter</button></div>
+  </div>
+</section>
+
+<section id="t-rapports" class="tab">
+  <div class="card">
+    <h2>Récapitulatifs</h2>
+    <div class="g">
+      <div><label for="rYear">Année</label><select id="rYear"></select></div>
+      <div><label for="rMois">Mois</label><select id="rMois"></select></div>
+      <div><label for="rKind">Période</label><select id="rKind"><option value="d">Jour (date précise)</option><option value="w1">Semaine S1 (1 à 7)</option><option value="w2">Semaine S2 (8 à 14)</option><option value="w3">Semaine S3 (15 à 21)</option><option value="w4">Semaine S4 (22 à fin de mois)</option><option value="wp">Semaine avant la date</option><option value="m">Mois</option><option value="y">Année</option></select></div>
+      <div><label for="rDate">Date précise (JJ/MM/AAAA)</label><input id="rDate" type="date"></div>
+      <div><label for="rWho">Commercial concerné</label><select id="rWho"></select></div>
+    </div>
+    <div class="row"><button class="btn" id="rGen">Générer le récap</button><button class="btn alt" id="rAll">Récap par commercial</button></div>
+    <label for="rOut">Récap (modifiable)</label>
+    <textarea id="rOut" style="min-height:220px"></textarea>
+    <div class="row">
+      <button class="btn ghost" id="rCopy">Copier</button>
+      <button class="btn ghost" id="rWa">Ouvrir dans WhatsApp</button>
+      <button class="btn ghost" id="rPdf">Rapport PDF du mois</button>
+      <button class="btn ghost" id="rPdfW">Rapport PDF de la semaine</button>
+      <button class="btn ghost" id="rXls">Exporter en Excel</button>
+      <button class="btn ghost" id="rCsv">Exporter les données (CSV)</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2 id="rRecapTitle">Récapitulatif</h2>
+    <div class="note">Tableau de synthèse et messages prêts à envoyer. Choisissez la période, la date et le commercial dans la carte ci-dessous.</div>
+    <div id="rTable"></div>
+    <div class="sec">Analyse et axes d'amélioration</div>
+    <div id="rAnaly"></div>
+    <div class="row"><button class="btn alt" id="rAi">Rédiger l'analyse avec Claude</button></div>
+    <div class="row"><button class="btn ghost" id="rListen">Écouter l'analyse</button><button class="btn ghost" id="rPause">Pause</button><button class="btn ghost" id="rResume">Reprendre</button><button class="btn ghost" id="rStop">Arrêter</button></div>
+    <div class="row"><button class="btn ghost" id="rAnalyCopy" data-copy="0">Copier l'analyse</button><button class="btn ghost" id="rAnalyWa" data-wa="0">Envoyer l'analyse sur WhatsApp</button></div>
+    <div class="sec">Messages prêts à envoyer</div>
+    <div id="rMsgs"></div>
+    <div class="sec">Type d'analyse</div>
+    <select id="anType">
+      <option value="performance">Performance : objectifs et axes d'amélioration</option>
+      <option value="tendance">Tendance : évolution sur 3 mois</option>
+      <option value="qualite">Qualité des saisies : doublons et incohérences</option>
+      <option value="productivite">Productivité : CA par visite et par client actif</option>
+      <option value="portefeuille">Portefeuille : répartition du CA</option>
+      <option value="prevision">Prévision : fin de période au rythme constaté</option>
+      <option value="strategie">Stratégie : avis de Claude et plan d'actions</option>
+    </select>
+    <div id="anOut" class="out"></div>
+    <div class="row"><button class="btn ghost" id="anCopy">Copier l'analyse</button><button class="btn ghost" id="anListen">Écouter</button><button class="btn ghost" id="anPause">Pause</button><button class="btn ghost" id="anResume">Reprendre</button><button class="btn ghost" id="anStop">Arrêter</button></div>
+    <div class="row"><button class="btn ghost" id="histoToggle" type="button">Voir l'historique journalier</button></div>
+    <div id="histoBox" style="display:none">
+    <div class="sec">Historique journalier par commercial</div>
+    <div class="note">Chaque jour, pour chaque commercial : CA, clients visités, clients actifs et produits. Il couvre toujours le mois de la date choisie.</div>
+    <div id="rJour"></div>
+    <button type="button" id="hjPdf" style="display:none">PDF</button>
+    <button type="button" id="hjXls" style="display:none">Excel</button>
+    </div>
+    <div class="sec">Historique sur 6 mois</div>
+    <div id="rHisto"></div>
+  </div>
+
+</section>
+
+<section id="t-params" class="tab">
+  <div class="card">
+    <h2>Compteurs</h2>
+    <div class="note">Les totaux, objectifs et projections ne comptent que les saisies à partir de la date de début. Les saisies antérieures restent conservées.</div>
+    <div class="g">
+      <div><label for="cDebut">Date de début du suivi</label><input id="cDebut" type="date"></div>
+    </div>
+    <div class="row"><button class="btn" id="cZero">Remettre les compteurs à zéro à partir de cette date</button></div>
+    <div class="note">Choisissez la date de la nouvelle utilisation (par défaut : aujourd'hui). Les saisies antérieures restent conservées mais ne sont plus comptées dans les totaux.</div>
+  </div>
+
+  <div class="card">
+    <h2>Équipe</h2>
+    <div class="note">Un commercial désactivé n'apparaît plus dans les saisies. Son historique est conservé.</div>
+    <div class="g">
+      <div><label for="pNom">Nom complet</label><input id="pNom"></div>
+      <div><label for="pVille">Ville</label><input id="pVille"></div>
+      <div><label for="pTel">Téléphone (facultatif)</label><input id="pTel" type="tel"></div>
+    </div>
+    <div class="row"><button class="btn" id="pAdd">Ajouter ce commercial</button></div>
+    <div class="sec">Commerciaux et objectifs personnels</div>
+    <div class="note">Vide = objectif général. Objectifs par jour de travail.</div>
+    <div id="pTeam"></div>
+  </div>
+
+  <div class="card">
+    <h2>Réglages</h2>
+    <div class="sec">Objectif général</div>
+    <div class="g">
+      <div><label for="cOc">CA par jour (Ar)</label><input id="cOc" data-money inputmode="numeric"></div>
+      <div><label for="cOv">Clients visités par jour</label><input id="cOv" type="number" min="0"></div>
+    </div>
+    <div class="sec">Clients actifs</div>
+    <div class="g">
+      <div><label for="cSeuil">Part des visités devant être actifs pour atteindre 100 % (%)</label><input id="cSeuil" type="number" min="1" max="100"></div>
+      <div><label for="cMode">Cumul sur une période</label><select id="cMode"><option value="sum">Somme des saisies quotidiennes</option><option value="last">Dernière valeur saisie</option></select></div>
+    </div>
+    <div class="sec">Calendrier</div>
+    <div class="g">
+      <div><label for="cWk">Jours travaillés</label><select id="cWk"><option value="5">Lundi à vendredi</option><option value="6">Lundi à samedi</option></select></div>
+    </div>
+    <label for="cFer">Jours non travaillés en plus des fériés fixes (JJ/MM/AAAA, séparés par des virgules)</label>
+    <input id="cFer" placeholder="Ex. 27/05/2026, 03/07/2026">
+    <div class="note">Fêtes fixes de Madagascar appliquées automatiquement. Les fêtes mobiles (Pâques, Ascension, Pentecôte) sont à ajouter chaque année.</div>
+    <div class="sec">Lecture audio</div>
+    <label for="cVoix">Voix de lecture</label>
+    <select id="cVoix"></select>
+    <div class="row"><button class="btn ghost" id="cVoixTest">Tester la voix</button></div>
+    <div class="note">Les voix proposées dépendent de ton appareil. Pour plus de choix, installe une voix française dans les réglages de ton système (Windows : Heure et langue, Voix ; Android ou iPhone : synthèse vocale).</div>
+    <div class="row"><button class="btn" id="cSave">Enregistrer les réglages</button></div>
+  </div>
+
+  <div class="card">
+    <h2>Journal des modifications</h2>
+    <div class="note">Chaque ajout, correction et suppression est gardé ici. « Annuler » remet la fiche dans l'état précédent.</div>
+    <div id="jList"></div>
+  </div>
+
+  <div class="card">
+    <h2>Diagnostic</h2>
+    <div class="note">À montrer en cas de problème : il indique l'état réel de la connexion et des dernières opérations.</div>
+    <div class="diag" id="diag"></div>
+    <div class="row"><button class="btn ghost" id="diagRefresh">Actualiser le diagnostic</button></div>
+  </div>
+
+  <div class="card">
+    <h2>Sauvegarde</h2>
+    <div class="note">Toutes les données (équipe, saisies, notes, stratégie, avis, journal, réglages) dans un seul fichier.</div>
+    <div class="row"><button class="btn ghost" id="bkp">Télécharger la sauvegarde complète</button></div>
+  </div>
+</section>
+
+</main>
+<div id="toast"></div>
+<script>
+/* ==================== Outils ==================== */
+var $=function(id){return document.getElementById(id)};
+var DB=null,SAMPLE=null,DL=null;
+var CFG={oc:1200000,ov:30,seuil:80,mode:"sum",wk:"5",fer:[],debut:""};
+var TEAM=[],SAIS=[],NOTES=[],STRAT=[],AVIS=[],JOURNAL=[],JLOCAL={};
+var PREV=[],PREV_T=[],ARMED=null,undoT=0;
+var SYNC={online:false,last:"",lastWrite:"-",lastDel:"-",lastErr:"-",snaps:0};
+var FIX=["01-01","03-29","05-01","06-26","08-15","12-25"];
+
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function ymd(d){var m=d.getMonth()+1,j=d.getDate();return d.getFullYear()+"-"+(m<10?"0":"")+m+"-"+(j<10?"0":"")+j}
+function today(){return ymd(new Date())}
+function pd(t){var a=String(t).split("-");return new Date(+a[0],+a[1]-1,+a[2])}
+function addD(t,n){var d=pd(t);d.setDate(d.getDate()+n);return ymd(d)}
+function fr(t){var a=String(t||"").split("-");return a.length===3?a[2]+"/"+a[1]+"/"+a[0]:String(t||"")}
+function fmt(n){return String(Math.round(n||0)).replace(/\B(?=(\d{3})+(?!\d))/g,"\u00a0")}
+function money(n){return fmt(n)+"\u00a0Ar"}
+function pct(x,y){return y?Math.round(x/y*100):0}
+function fold(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function bareId(v){return String(v==null?"":v).split("/").pop()}
+function clone(o){var r={};Object.keys(o||{}).forEach(function(k){if(k!=="id"&&o[k]!==undefined)r[k]=o[k]});return r}
+function toast(t){var e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(function(){e.classList.remove("show")},3200)}
+function byId(id){var k=bareId(id);if(!k)return null;for(var i=0;i<TEAM.length;i++)if(bareId(TEAM[i].id)===k)return TEAM[i];return null}
+function activeTeam(){return TEAM.filter(function(c){return c.actif!==false})}
+function localOf(col){return col==="saisies"?SAIS:(col==="notes"?NOTES:(col==="strat"?STRAT:(col==="team"?TEAM:[])))}
+function errCode(e){return (e&&(e.code||e.message))||"erreur"}
+
+/* ==================== Règles de calcul ==================== */
+function isWork(t){
+  var w=pd(t).getDay();
+  if(w===0)return false;
+  if(w===6&&CFG.wk!=="6")return false;
+  if(FIX.indexOf(t.slice(5))>=0)return false;
+  if(CFG.fer.indexOf(t)>=0)return false;
+  return true;
+}
+function workdays(a,b){var n=0,t=a;if(!a||!b)return 0;while(t<=b){if(isWork(t))n++;t=addD(t,1)}return n}
+function startDate(){return CFG.debut||"0000-00-00"}
+function clip(a){return a<startDate()?startDate():a}
+function objFor(c){return {ca:c.oc||CFG.oc,v:c.ov||CFG.ov}}
+function objOf(c,a,b){
+  var a2=clip(a),end=b<today()?b:today();
+  var wd=(a2>end)?0:workdays(a2,end);
+  var o=objFor(c);
+  return {ca:o.ca*wd,v:o.v*wd,wd:wd};
+}
+function taObj(act,vis){return vis?Math.round((act/vis)/(CFG.seuil/100)*100):0}
+/* Semaines du calendrier du mois de la date : lundi à dimanche, tronquées aux bornes du mois */
+function monthWeeks(ref){
+  var d=pd(ref),first=ymd(new Date(d.getFullYear(),d.getMonth(),1)),last=ymd(new Date(d.getFullYear(),d.getMonth()+1,0));
+  var m0=addD(first,-((pd(first).getDay()+6)%7)),out=[];
+  for(var k=0;k<6;k++){
+    var wa=addD(m0,7*k),wb=addD(wa,6);
+    if(wa>last)break;
+    out.push({a:wa<first?first:wa,b:wb>last?last:wb});
+  }
+  return out;
+}
+/* Menu Période : les semaines S1…Sn suivent le calendrier du mois choisi (S5 s'ajoute si le mois en a cinq) */
+function fillKind(){
+  var sel=$("rKind");if(!sel)return;
+  var cur=sel.value,ref=$("rDate").value||today(),wk=monthWeeks(ref);
+  sel.innerHTML="";
+  var add=function(v,t){var o=document.createElement("option");o.value=v;o.textContent=t;sel.appendChild(o)};
+  add("d","Jour (date précise)");
+  wk.forEach(function(w,i){add("w"+(i+1),"Semaine S"+(i+1)+" ("+fr(w.a).slice(0,5)+" au "+fr(w.b).slice(0,5)+")")});
+  add("wp","Semaine avant la date");
+  add("m","Mois");
+  add("y","Année");
+  var valid=Array.prototype.some.call(sel.options,function(o){return o.value===cur});
+  sel.value=valid?cur:"m";
+}
+function period(kind,ref){
+  var t=ref||today(),a,b,pa,pb,lbl,d;
+  if(kind==="d"){
+    a=t;b=t;pa=addD(t,-1);pb=pa;
+    lbl="Récap du "+pd(t).toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  }else if(kind==="y"){
+    var yr=t.slice(0,4);
+    a=yr+"-01-01";b=yr+"-12-31";pa=(+yr-1)+"-01-01";pb=(+yr-1)+"-12-31";
+    lbl="Récap annuel "+yr;
+  }else if(/^w[1-9]$/.test(kind)){
+    var nSem=+kind.slice(1),wk=monthWeeks(t);
+    var pick=wk[Math.min(nSem,wk.length)-1];
+    a=pick.a;b=pick.b;
+    pa=addD(a,-7);pb=addD(a,-1);
+    var dm=pd(t);
+    lbl="Récap de la semaine S"+nSem+" de "+MOIS_FR[dm.getMonth()].toLowerCase()+" "+dm.getFullYear()+" (du "+fr(a).slice(0,5)+" au "+fr(b).slice(0,5)+")";
+  }else if(kind==="wp"){
+    var off0=(pd(t).getDay()+6)%7,cur0=addD(t,-off0);
+    a=addD(cur0,-7);b=addD(a,6);pa=addD(a,-7);pb=addD(a,-1);
+    lbl="Récap de la semaine avant la date (du "+fr(a)+" au "+fr(b)+")";
+  }else if(kind==="w"){
+    d=pd(t);var off=(d.getDay()+6)%7;
+    a=addD(t,-off);b=addD(a,6);pa=addD(a,-7);pb=addD(a,-1);
+    lbl="Récap de la semaine du "+fr(a)+" au "+fr(b);
+  }else{
+    d=pd(t);
+    a=ymd(new Date(d.getFullYear(),d.getMonth(),1));
+    b=ymd(new Date(d.getFullYear(),d.getMonth()+1,0));
+    pa=ymd(new Date(d.getFullYear(),d.getMonth()-1,1));
+    pb=ymd(new Date(d.getFullYear(),d.getMonth(),0));
+    lbl="Récap du mois : "+d.toLocaleDateString("fr-FR",{month:"long",year:"numeric"});
+  }
+  return {a:a,b:b,pa:pa,pb:pb,lbl:lbl};
+}
+function stats(a,b,ids){
+  var A=clip(a),per={},tot={ca:0,vis:0,act:0,refs:[],n:0};
+  ids.forEach(function(id){per[id]={ca:0,vis:0,act:0,refs:[],n:0,lastD:"",last:0}});
+  if(A<=b)SAIS.forEach(function(s){
+    if(s.date<A||s.date>b||!per[s.com])return;
+    var o=per[s.com];o.n++;o.ca+=num(s.ca);o.vis+=num(s.vis);o.refs.push(num(s.ref));
+    if(CFG.mode==="sum")o.act+=num(s.act);
+    else if(s.date>=o.lastD){o.lastD=s.date;o.last=num(s.act)}
+  });
+  ids.forEach(function(id){
+    var o=per[id];if(CFG.mode!=="sum")o.act=o.last;
+    tot.ca+=o.ca;tot.vis+=o.vis;tot.act+=o.act;tot.n+=o.n;tot.refs=tot.refs.concat(o.refs);
+  });
+  return {per:per,tot:tot};
+}
+function refStats(refs){
+  var v=refs.filter(function(x){return x>0});
+  if(!v.length)return {avg:0,max:0};
+  return {avg:Math.round(v.reduce(function(s,x){return s+x},0)/v.length),max:Math.max.apply(null,v)};
+}
+/* Projection de fin de mois : rythme constaté x jours travaillés du mois */
+function projection(ca,a,b){
+  var P=period("m",today()),A=clip(P.a);
+  var elapsed=workdays(A,today()<P.b?today():P.b),total=workdays(A,P.b);
+  return elapsed?Math.round(ca/elapsed*total):null;
+}
+function dif(x,y){if(!y)return "";var p=Math.round((x-y)/y*100);return " ("+(p>=0?"+":"")+p+" % vs période précédente)"}
+function bilan(name,st,ob,pst){
+  var rs=refStats(st.refs),taux=taObj(st.act,st.vis),axe;
+  if(pct(st.ca,ob.ca)<100)axe="rattraper le chiffre d'affaires";
+  else if(pct(st.vis,ob.v)<100)axe="augmenter le nombre de visites";
+  else if(taux<100)axe="relancer les clients visités qui ne sont pas encore actifs";
+  else axe="maintenir le rythme";
+  return [
+    name+" :",
+    "CA "+money(st.ca)+" sur "+money(ob.ca)+" d'objectif = "+pct(st.ca,ob.ca)+" %"+(pst?dif(st.ca,pst.ca):""),
+    fmt(st.vis)+" clients visités sur "+fmt(ob.v)+" = "+pct(st.vis,ob.v)+" %",
+    fmt(st.act)+" clients actifs sur "+fmt(st.vis)+" visités : "+taux+" % de l'objectif ("+CFG.seuil+" % des visités = 100 %)",
+    "Produits référencés : moyenne "+rs.avg+", maximum "+rs.max,
+    "Axe d'amélioration : "+axe+"."
+  ].join("\n");
+}
+function num(v){if(typeof v==="number")return isFinite(v)?v:0;var n=parseFloat(String(v==null?"":v).replace(/[^\d.-]/g,""));return isNaN(n)?0:n}
+
+/* ==================== Lecture des comptes rendus ==================== */
+/* Convertit un nombre écrit à la française ou à l'anglaise : 620.000 · 620 000 · 620.000,50 · 1,2 */
+function toNum(t){
+  t=String(t||"").replace(/\s/g,"");
+  var m=t.match(/^(\d[\d.,]*?)[.,](\d{1,2})$/);
+  if(m&&!/[.,]\d{3}$/.test(t)){return parseFloat(m[1].replace(/[.,]/g,"")+"."+m[2])||0}
+  return parseInt(t.replace(/[.,]/g,""),10)||0;
+}
+/* Montant : accepte 620.000Ar, 620 000 Ar, 620k, 1,2 million, 1,2 M */
+function parseNum(v){
+  var s=String(v==null?"":v).toLowerCase().replace(/\u00a0/g," ");
+  var m=s.match(/(\d[\d\s.,]*)\s*(m|million|millions)\b/);
+  if(m)return Math.round(toNum(m[1].trim())*1000000);
+  m=s.match(/(\d[\d\s.,]*)\s*k\b/);
+  if(m)return Math.round(toNum(m[1].trim())*1000);
+  m=s.match(/\d[\d\s.,]*/);
+  return m?Math.round(toNum(m[0].trim())):0;
+}
+function parseDate(v,fallback){
+  var m=String(v||"").match(/(\d{1,2})[\/.\-](\d{1,2})(?:[\/.\-](\d{2,4}))?/);
+  if(!m)return fallback;
+  var y=m[3]?(m[3].length===2?"20"+m[3]:m[3]):fallback.slice(0,4);
+  return y+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[1]).slice(-2);
+}
+function fieldOf(label){
+  var l=fold(label);
+  if(/\b(com|commercial|agent|nom)\b/.test(l))return "com";
+  if(/\bdate\b|\bjour\b/.test(l))return "date";
+  if(/visit/.test(l))return "vis";
+  if(/actif/.test(l))return "act";
+  if(/produit|reference|\bref\b/.test(l))return "ref";
+  if(/\bca\b|chiffre|montant/.test(l))return "ca";
+  return "";
+}
+/* Lit « libellé : valeur » ligne par ligne et regroupe par commercial */
+/* Ligne de produit : contenance dans le nom (1l, 0,5l, 400ml, 1kg…) ou quantité suivie d'une unité */
+function isProductLine(label,value){
+  var sizeTok=/\d+[.,]?\d*\s*(l|cl|ml|kg|g|gr)\b/i;
+  var qtyTok=/^\d+[\d.,]*\s*(packs?|pqts?|cartons?|bouteilles?|unit[ée]s?|x)\b/i;
+  return sizeTok.test(label)||qtyTok.test(String(value||""));
+}
+function parseCR(text,defaultDate){
+  var lines=String(text||"").split(/\r?\n/).map(function(l){return l.trim()}).filter(Boolean);
+  var blocks=[],cur={};
+  lines.forEach(function(line,idx){
+    /* ligne de produit vendu : « * Nom du produit : 4pqt » -> comptée pour le commercial en cours */
+    if(/^[*\-•]/.test(line)&&/\d/.test(line)){cur.lignes=(cur.lignes||0)+1;return}
+    /* « CA 620.000Ar » sans deux-points : toute valeur après « CA » est un chiffre d'affaires */
+    var cm=line.match(/^(ca|c\.a\.?|chiffre d'affaires|montant|ventes?)\s*[:=\-]?\s*(\d.*)$/i);
+    if(cm&&cur){cur.ca=cm[2].trim();return}
+    var m=line.match(/^([^:]{1,60}):\s*(.*)$/);
+    /* produit vendu sans puce : « Vinaigre 1l: 6packs » ou « Natur'eau 0,5l: 3 » */
+    /* en-tête de date sans deux-points : « Réalisation du 10/10/26 », « Compte rendu du 10/10/2026 » */
+    var dh=line.match(/^(?:(?:r[ée]alisation|compte[- ]rendu|rapport|visite|journ[ée]e)(?:\s*(?:du|le|:))?\s*|(?:du|le)\s*)(\d{1,2}[\/.\-]\d{1,2}(?:[\/.\-]\d{2,4})?)\b/i);
+    if(dh){
+      if(cur.com){blocks.push(cur);cur={}}
+      cur.date=parseDate(dh[1],defaultDate);
+      return;
+    }
+    /* section « Ventes : » : les lignes qui suivent sont des produits vendus */
+    if(m&&/^(ventes?|produits? vendus?)$/.test(fold(m[1]).trim())&&!m[2].trim()){cur.section="ventes";return}
+    if(m&&!fieldOf(m[1])&&(isProductLine(m[1],m[2])||(cur.section==="ventes"&&/^\d/.test(m[2].trim())))){cur.lignes=(cur.lignes||0)+1;return}
+    var label=m?m[1]:line,v=m?m[2].trim():"";
+    if(!m&&!/^[\d\s.,]+$/.test(line))return;
+    if(!m){var prev=lines[idx-1];if(!prev)return;label=prev.replace(/:\s*$/,"");v=line}
+    var f=fieldOf(label);if(!f)return;
+    cur.section="";
+    if(!v)return;
+    if(f==="com"&&cur.com){blocks.push(cur);cur={}}
+    if(f==="date")cur.date=parseDate(v,defaultDate);
+    else cur[f]=v;
+  });
+  if(Object.keys(cur).length)blocks.push(cur);
+  return blocks.filter(function(b){return b.com||b.ca||b.vis||b.act||b.ref||b.lignes}).map(function(b){
+    /* produits référencés : valeur déclarée, sinon nombre de lignes de produits vendus */
+    var ref=b.ref?parseNum(b.ref):(b.lignes||0);
+    return {brut:b.com||"",com:matchCom(b.com||"")||"",date:b.date||defaultDate,ca:parseNum(b.ca),vis:parseNum(b.vis),act:parseNum(b.act),ref:ref};
+  });
+}
+function normName(n){
+  var f=fold(n).replace(/[-_.,()]/g," ").replace(/\s+/g," ").trim();
+  return f.replace(/\bfridom\b/g,"fridon").replace(/\bjohnny\b/g,"jonny").replace(/\bnosybe\b/g,"nosy be");
+}
+function matchCom(n){
+  var f=normName(n);if(!f)return "";
+  var words=f.split(" "),list=activeTeam(),hit=null;
+  list.forEach(function(c){if(!hit&&normName(c.nom)===f)hit=c});
+  list.forEach(function(c){
+    if(hit)return;
+    var toks=normName(c.nom).split(" ").filter(function(w){return w.length>2});
+    if(toks.some(function(t){return words.indexOf(t)>=0}))hit=c;
+  });
+  list.forEach(function(c){
+    if(hit||!c.ville)return;
+    if((" "+f+" ").indexOf(" "+normName(c.ville)+" ")>=0)hit=c;
+  });
+  return hit?bareId(hit.id):"";
+}
+/* Si le nom n'est pas dans le champ, on cherche le seul commercial cité dans le texte */
+function matchAllIn(text){
+  var f=normName(text),words=f.split(" "),ids={};
+  activeTeam().forEach(function(c){
+    var toks=normName(c.nom).split(" ").filter(function(w){return w.length>2});
+    var ville=normName(c.ville);
+    if(toks.some(function(t){return words.indexOf(t)>=0})||(ville&&(" "+f+" ").indexOf(" "+ville+" ")>=0))ids[bareId(c.id)]=1;
+  });
+  var k=Object.keys(ids);
+  return k.length===1?k[0]:"";
+}
+
+var HW=[278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584];
+function PDF(){
+  var pages=[],cur=null,W=595,H=842,self=this;
+  function hx(c){var n=parseInt(c.slice(1),16);return [(n>>16)&255,(n>>8)&255,n&255].map(function(x){return (x/255).toFixed(3)}).join(" ")}
+  function enc(s){return String(s).replace(/[\u2018\u2019\u02bc]/g,"'").replace(/[\u201c\u201d]/g,'"').replace(/[\u2013\u2014]/g,"-").replace(/\u2026/g,"...").replace(/[\u00a0\u202f]/g," ").replace(/\u0153/g,"oe").replace(/\u0152/g,"OE").replace(/[^\x20-\x7e\xa1-\xff]/g,"?")}
+  function esc(s){return enc(s).replace(/([\\()])/g,"\\$1")}
+  this.tw=function(s,size,bold){var w=0;s=enc(s);for(var i=0;i<s.length;i++){var c=s.charCodeAt(i);w+=(c>=32&&c<=126)?HW[c-32]:((c>=192&&c<=221)?667:556)}return w*size/1000*(bold?1.06:1)};
+  this.addPage=function(){cur={c:[]};pages.push(cur);return pages.length-1};
+  this.setPage=function(i){cur=pages[i]};
+  this.count=function(){return pages.length};
+  this.text=function(x,y,s,size,o){o=o||{};var w=self.tw(s,size,o.b);if(o.al==="r")x=x-w;else if(o.al==="c")x=x-w/2;
+    cur.c.push(hx(o.c||"#16202f")+" rg BT /"+(o.b?"F2":"F1")+" "+size+" Tf "+x.toFixed(2)+" "+(H-y).toFixed(2)+" Td ("+esc(s)+") Tj ET")};
+  this.rect=function(x,y,w,h,fill,stroke){var q=x.toFixed(2)+" "+(H-y-h).toFixed(2)+" "+w.toFixed(2)+" "+h.toFixed(2)+" re";
+    if(fill&&stroke)cur.c.push(hx(fill)+" rg "+hx(stroke)+" RG 0.6 w "+q+" B");else if(fill)cur.c.push(hx(fill)+" rg "+q+" f");else cur.c.push(hx(stroke||"#d9dfea")+" RG 0.6 w "+q+" S")};
+  this.line=function(x1,y1,x2,y2,c,wd,dash){cur.c.push(hx(c||"#d9dfea")+" RG "+(wd||0.6)+" w "+(dash?"["+dash+"] 0 d ":"")+x1.toFixed(2)+" "+(H-y1).toFixed(2)+" m "+x2.toFixed(2)+" "+(H-y2).toFixed(2)+" l S"+(dash?" [] 0 d":""))};
+  this.poly=function(pts,c,wd){var s=pts.map(function(p,i){return p[0].toFixed(2)+" "+(H-p[1]).toFixed(2)+(i?" l":" m")}).join(" ");cur.c.push(hx(c)+" RG "+(wd||1.6)+" w "+s+" S")};
+  this.wrap=function(s,maxw,size,bold){var out=[];String(s).split("\n").forEach(function(par){var words=par.split(" "),line="";words.forEach(function(w){var t=line?line+" "+w:w;if(self.tw(t,size,bold)>maxw&&line){out.push(line);line=w}else line=t});out.push(line)});return out};
+  this.para=function(x,y,s,maxw,size,o){o=o||{};var ls=self.wrap(s,maxw,size,o.b);ls.forEach(function(l,i){self.text(x,y+i*(size+3),l,size,o)});return y+ls.length*(size+3)};
+  this.out=function(){
+    var objs=[],add=function(s){objs.push(s);return objs.length};
+    add("<< /Type /Catalog /Pages 2 0 R >>");add("PAGES");
+    add("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>");
+    add("<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>");
+    var kids=[];
+    pages.forEach(function(p){var s=p.c.join("\n"),cid=add("<< /Length "+s.length+" >>\nstream\n"+s+"\nendstream"),pid=add("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 "+W+" "+H+"] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents "+cid+" 0 R >>");kids.push(pid+" 0 R")});
+    objs[1]="<< /Type /Pages /Kids ["+kids.join(" ")+"] /Count "+kids.length+" >>";
+    var o="%PDF-1.4\n",off=[];
+    objs.forEach(function(b,i){off.push(o.length);o+=(i+1)+" 0 obj\n"+b+"\nendobj\n"});
+    var x=o.length;o+="xref\n0 "+(objs.length+1)+"\n0000000000 65535 f \n";
+    off.forEach(function(f){o+=("0000000000"+f).slice(-10)+" 00000 n \n"});
+    o+="trailer\n<< /Size "+(objs.length+1)+" /Root 1 0 R >>\nstartxref\n"+x+"\n%%EOF";
+    var u=new Uint8Array(o.length);for(var i=0;i<o.length;i++)u[i]=o.charCodeAt(i)&255;return u;
+  };
+}
+
+
+/* ==================== Données partagées ==================== */
+function fromSnap(snap){
+  return snap.docs.map(function(d){
+    var o=Object.assign({},d.data()||{});
+    o.id=bareId(o.ident||d.id||(d.ref&&d.ref.id)||"");
+    return o;
+  }).filter(function(o){return !o.supprime && !!o.id});
+}
+function setStatus(){
+  var s=$("sync");
+  if(DB&&SYNC.online){s.textContent="Synchronisé sur tous vos appareils";s.className="sync"}
+  else if(DB){s.textContent="Connexion à la base…";s.className="sync warn"}
+  else{s.textContent="Base non connectée : rien n'est enregistré";s.className="sync warn"}
+}
+function journal(quoi,col,ref,avant,apres,resume){
+  if(!DB)return null;
+  var jid=uid();
+  var e={quoi:quoi,col:col,ref:ref,avant:avant?clone(avant):null,apres:apres?clone(apres):null,resume:resume||"",at:new Date().toISOString()};
+  JLOCAL[jid]=e;
+  try{var p=DB.doc("journal/"+jid).set(clone(e));if(p&&p.catch)p.catch(function(){})}catch(x){}
+  return jid;
+}
+function resumeOf(col,o){
+  o=o||{};
+  if(col==="saisies"){var c=byId(o.com);return fr(o.date)+" · "+(c?c.nom:"commercial inconnu")+" : CA "+money(o.ca)+" · "+num(o.vis)+" vis. · "+num(o.act)+" actifs"}
+  if(col==="notes")return "Note du "+fr(o.date)+" : "+String(o.texte||"").slice(0,60);
+  if(col==="strat")return "Action : "+String(o.action||"").slice(0,80);
+  if(col==="team")return "Commercial : "+(o.nom||"");
+  return col;
+}
+/* Écriture : vérifiée, journalisée, message clair en cas d'échec */
+function put(col,id,obj){
+  if(!DB){toast("Enregistrement impossible : base non connectée.");return false}
+  var o=clone(obj);
+  if(col==="saisies"||col==="notes"){
+    o.com=bareId(o.com);
+    if(!o.com||!activeTeam().some(function(c){return bareId(c.id)===o.com})){toast("Commercial non reconnu : choisissez-le dans la liste.");return false}
+  }
+  if(col==="saisies"&&!/^\d{4}-\d{2}-\d{2}$/.test(String(o.date||""))){toast("Date invalide.");return false}
+  var before=localOf(col).filter(function(z){return z.id===id})[0];
+  var snapshotArr=localOf(col).slice();
+  upsertLocal(col,id,o);renderAll();
+  try{
+    var p=DB.doc(col+"/"+id).set(o);
+    Promise.resolve(p).then(function(){
+      SYNC.lastWrite="OK "+col+"/"+id+" à "+new Date().toLocaleTimeString("fr-FR");
+      journal(before?"modification":"ajout",col,id,before?clone(before):null,o,resumeOf(col,o));
+      renderDiag();
+    },function(e){
+      SYNC.lastErr="Écriture refusée : "+col+"/"+id+" ("+errCode(e)+")";
+      setLocal(col,snapshotArr);renderAll();
+      toast("Enregistrement refusé par la base ("+errCode(e)+").");renderDiag();
+    });
+  }catch(e){setLocal(col,snapshotArr);renderAll();toast("Enregistrement impossible : "+errCode(e));return false}
+  return true;
+}
+function setLocal(col,arr){
+  if(col==="saisies")SAIS=arr;
+  else if(col==="notes")NOTES=arr;
+  else if(col==="strat")STRAT=arr;
+  else if(col==="team")TEAM=arr;
+}
+function upsertLocal(col,id,o){
+  var arr=localOf(col).filter(function(z){return z.id!==id});
+  var x=clone(o);x.id=id;arr.push(x);setLocal(col,arr);
+}
+function restoreLocal(col,obj){
+  if(!obj)return;
+  if(col==="saisies")SAIS=SAIS.concat([obj]);
+  if(col==="notes")NOTES=NOTES.concat([obj]);
+  if(col==="strat")STRAT=STRAT.concat([obj]);
+  renderAll();
+}
+/* Suppression réelle, avec retrait immédiat, confirmation et retour si refus */
+function del(col,id,obj){
+  if(!DB){toast("Suppression impossible : base non connectée.");return}
+  var keep=clone(obj);
+  if(col==="saisies")SAIS=SAIS.filter(function(z){return z.id!==id});
+  if(col==="notes")NOTES=NOTES.filter(function(z){return z.id!==id});
+  if(col==="strat")STRAT=STRAT.filter(function(z){return z.id!==id});
+  renderAll();
+  var done=false,p;
+  var timer=setTimeout(function(){if(!done){SYNC.lastErr="Suppression sans réponse de la base : "+col+"/"+id;toast("La base ne confirme pas la suppression. Consultez le diagnostic.");renderDiag()}},8000);
+  try{p=DB.doc(col+"/"+id).delete()}catch(e){clearTimeout(timer);SYNC.lastErr="Suppression impossible : "+errCode(e);toast("Suppression impossible : "+errCode(e));restoreLocal(col,obj);renderDiag();return}
+  Promise.resolve(p).then(function(){
+    done=true;clearTimeout(timer);
+    SYNC.lastDel="OK "+col+"/"+id+" à "+new Date().toLocaleTimeString("fr-FR");
+    var jid=journal("suppression",col,id,keep,null,resumeOf(col,keep));
+    $("undo").innerHTML='<div class="item" style="background:var(--okb)"><span>Élément supprimé.</span><button data-undo="'+jid+'">Annuler la suppression</button></div>';
+    toast("Supprimée.");renderDiag();
+  },function(e){
+    done=true;clearTimeout(timer);
+    SYNC.lastErr="Suppression refusée : "+col+"/"+id+" ("+errCode(e)+")";
+    toast("Suppression refusée par la base ("+errCode(e)+"). La fiche est rétablie.");
+    restoreLocal(col,obj);renderDiag();
+  });
+}
+function restoreEntry(j){
+  if(!DB||!j){toast("Annulation impossible.");return}
+  var path=j.col+"/"+j.ref;
+  var p=j.avant?DB.doc(path).set(clone(j.avant)):DB.doc(path).delete();
+  Promise.resolve(p).then(function(){
+    journal("annulation",j.col,j.ref,j.apres,j.avant,"Retour : "+(j.resume||""));
+    $("undo").innerHTML="";toast("Action annulée.");
+  },function(e){toast("Annulation refusée : "+errCode(e))});
+}
+function restoreById(jid){
+  var j=JLOCAL[jid]||JOURNAL.filter(function(x){return x.id===jid})[0];
+  if(!j){toast("Action introuvable.");return}
+  restoreEntry(j);
+}
+
+/* ==================== Connexion ==================== */
+function subscribe(){
+  var ok=function(){SYNC.online=true;SYNC.snaps++;SYNC.last=new Date().toLocaleTimeString("fr-FR");setStatus();renderDiag()};
+  var ko=function(e){SYNC.lastErr="Abonnement refusé : "+errCode(e);setStatus();renderDiag()};
+  DB.collection("team").onSnapshot(function(s){ok();TEAM=fromSnap(s);renderAll()},ko);
+  DB.collection("saisies").onSnapshot(function(s){ok();SAIS=fromSnap(s);renderAll()},ko);
+  DB.collection("notes").onSnapshot(function(s){ok();NOTES=fromSnap(s);renderAll()},ko);
+  DB.collection("strat").onSnapshot(function(s){ok();STRAT=fromSnap(s);renderAll()},ko);
+  DB.collection("avis").onSnapshot(function(s){ok();AVIS=fromSnap(s).sort(function(a,b){return a.date<b.date?1:-1});renderAvis()},ko);
+  DB.collection("journal").onSnapshot(function(s){ok();JOURNAL=fromSnap(s).sort(function(a,b){return a.at<b.at?1:-1}).slice(0,200);renderJournal()},ko);
+  DB.doc("config/main").onSnapshot(function(s){
+    ok();
+    if(s.exists){var v=s.data();CFG={oc:num(v.oc)||CFG.oc,ov:num(v.ov)||CFG.ov,seuil:num(v.seuil)||CFG.seuil,mode:v.mode||CFG.mode,wk:v.wk||CFG.wk,fer:v.fer||[],debut:v.debut||"",dernierExport:v.dernierExport||"",voix:v.voix||""}}
+    loadParams();renderAll();
+  },ko);
+}
+function saveConfig(o){
+  CFG=Object.assign({},CFG,o);
+  if(!DB){toast("Réglages non enregistrés : base non connectée.");return false}
+  Promise.resolve(DB.doc("config/main").set(clone(CFG))).then(function(){toast("Réglages enregistrés.")},function(e){toast("Réglages refusés : "+errCode(e))});
+  renderAll();checkDateNote();return true;
+}
+
+
+/* ==================== Affichage ==================== */
+function renderAll(){
+  setStatus();
+  renderDash();renderSaisie();renderRapports();renderAvis();renderJournal();
+  if(!$("t-params").classList.contains("on"))renderTeam();
+  renderDiag();
+}
+function fillSelect(sel,withAll){
+  var cur=sel.value;sel.innerHTML="";
+  if(withAll){var o=document.createElement("option");o.value="";o.textContent="— Tous les commerciaux";o.title="Aucun commercial choisi : toutes les saisies s'affichent";sel.appendChild(o)}
+  activeTeam().forEach(function(c){var q=document.createElement("option");q.value=bareId(c.id);q.textContent=c.nom+" ("+c.ville+")";sel.appendChild(q)});
+  if(cur)sel.value=cur;
+}
+function renderSaisie(){
+  fillSelect($("sCom"),false);fillSelect($("nCom"),false);fillSelect($("fCom"),true);
+  if(!$("sDate").value)$("sDate").value=today();
+  if(!$("nDate").value)$("nDate").value=today();
+  $("noTeam").textContent=activeTeam().length?"":"Aucun commercial actif : ajoutez-en dans Paramètres avant de saisir.";
+  renderSaisieList();
+  var n=NOTES.slice().sort(function(a,b){return a.date<b.date?1:-1}).slice(0,10);
+  $("nList").innerHTML=n.length?n.map(function(x){
+    var c=byId(x.com);
+    return '<div class="item"><span>'+fr(x.date)+' · '+(c?esc(c.nom):'<b style="color:var(--low)">commercial non reconnu</b>')+' : '+esc(String(x.texte||"").slice(0,90))+'</span><div class="acts">'+delBtn("notes",x.id)+'</div></div>';
+  }).join(""):'<div class="note">Aucune note.</div>';
+  renderStratList();
+}
+function delBtn(col,id){
+  var a=ARMED&&ARMED.col===col&&ARMED.id===id&&(Date.now()-ARMED.t)<10000;
+  return '<button data-del="'+col+'" data-id="'+id+'"'+(a?' class="arm"':'')+'>'+(a?"Confirmer":"Supprimer")+'</button>';
+}
+/* Vérification de la lecture d'un compte rendu */
+/* Contrôles avant enregistrement : bloquant (impossible) ou à vérifier (inhabituel) */
+function saisieIssues(rec){
+  var out={block:[],warn:[]},com=bareId(rec.com),ca=num(rec.ca),vis=num(rec.vis),act=num(rec.act),ref=num(rec.ref);
+  if(act>vis)out.block.push("Clients actifs supérieurs aux clients visités.");
+  var others=SAIS.filter(function(x){return bareId(x.com)===com&&x.date!==rec.date&&num(x.ca)>0});
+  if(others.length>=3){
+    var avg=others.reduce(function(a,x){return a+num(x.ca)},0)/others.length;
+    if(ca>3*avg)out.warn.push("CA très supérieur à la moyenne de ce commercial ("+money(avg)+").");
+  }
+  var dup=SAIS.filter(function(x){return bareId(x.com)===com&&x.date!==rec.date&&num(x.ca)===ca&&num(x.vis)===vis&&num(x.act)===act&&num(x.ref)===ref&&ca>0});
+  if(dup.length)out.warn.push("Chiffres identiques à la saisie du "+fr(dup[0].date)+" : vérifiez qu'il ne s'agit pas d'un doublon.");
+  return out;
+}
+function renderPrev(){
+  if(!PREV.length){$("xPrev").innerHTML="";return}
+  var bad=PREV.filter(function(r){return !r.com}).length;
+  var head='<div class="sec">Vérification</div>';
+  if(bad)head+='<div class="note"><b style="color:var(--low)">'+bad+' ligne(s) à corriger.</b> Aucun commercial ne correspond au nom reçu : choisissez le bon.</div>';
+  else head+='<div class="note"><b style="color:var(--ok)">Toutes les lignes sont reconnues.</b> Vérifiez les chiffres, puis enregistrez.</div>';
+  var rows=PREV.map(function(r,i){
+    var c=byId(r.com);
+    var iss=c?saisieIssues({com:r.com,date:r.date,ca:r.ca,vis:r.vis,act:r.act,ref:r.ref}):{block:[],warn:[]};
+    var alerts=iss.block.concat(iss.warn).map(function(x){return '<div class="ts" style="color:'+(iss.block.indexOf(x)>=0?"var(--low)":"var(--mid)")+';font-weight:700">'+esc(x)+'</div>'}).join("");
+    var st=c?'<span class="pill ok-p">Reconnu : '+esc(c.nom)+' ('+esc(c.ville)+')</span>':'<span class="pill low-p">Non reconnu</span>';
+    var pick=c?'':'<div class="note" style="margin:6px 0 2px">Nom reçu : « '+esc(r.brut||"?")+' »</div><select data-k="'+i+'"><option value="">— choisir —</option>'+activeTeam().map(function(m){return '<option value="'+bareId(m.id)+'">'+esc(m.nom)+' ('+esc(m.ville)+')</option>'}).join("")+'</select>';
+    return '<div class="item" style="display:block"><div>'+st+'</div>'+pick+alerts+
+      '<div class="g" style="margin-top:8px">'+
+      '<div><label>Date</label><input type="date" data-x="'+i+'" data-f="date" value="'+esc(r.date)+'"></div>'+
+      '<div><label>CA (Ar)</label><input data-money data-x="'+i+'" data-f="ca" value="'+fmt(r.ca)+'"></div>'+
+      '<div><label>Visités</label><input data-x="'+i+'" data-f="vis" value="'+esc(r.vis)+'"></div>'+
+      '<div><label>Actifs</label><input data-x="'+i+'" data-f="act" value="'+esc(r.act)+'"></div>'+
+      '<div><label>Produits</label><input data-x="'+i+'" data-f="ref" value="'+esc(r.ref)+'"></div>'+
+      '</div></div>';
+  }).join("");
+  $("xPrev").innerHTML=head+rows+'<div class="row"><button class="btn" id="xSave">Enregistrer les lignes reconnues</button></div>';
+  $("xSave").onclick=saveReadRows;
+}
+function saveReadRows(){
+  var saved=0,rest=[];
+  PREV.forEach(function(r,i){
+    var sel=document.querySelector('select[data-k="'+i+'"]');
+    var get=function(f){var e=document.querySelector('[data-x="'+i+'"][data-f="'+f+'"]');return e?e.value:""};
+    var com=sel?sel.value:r.com;
+    var row={com:com,date:get("date"),ca:num(get("ca")),vis:num(get("vis")),act:num(get("act")),ref:num(get("ref")),brut:r.brut};
+    if(!com){rest.push(row);return}
+    var iss=saisieIssues(row);
+    if(iss.block.length){rest.push(row);return}
+    var id=row.date+"_"+com;
+    if(put("saisies",id,{date:row.date,com:com,ca:row.ca,vis:row.vis,act:row.act,ref:row.ref}))saved++;
+    else rest.push(row);
+  });
+  PREV=rest;
+  if(rest.length){renderPrev();toast(saved+" enregistrée(s). "+rest.length+" ligne(s) à compléter.")}
+  else{$("xPrev").innerHTML="";$("xTxt").value="";toast(saved+" saisie(s) enregistrée(s).")}
+}
+function renderPrevT(){
+  if(!PREV_T.length){$("tPrev").innerHTML="";return}
+  $("tPrev").innerHTML='<div class="sec">Vérification</div>'+PREV_T.map(function(r){
+    return '<div class="item"><span>'+esc(r.zone||"—")+' · '+esc(r.resp||"—")+' : '+esc(r.action)+' ['+esc(r.statut)+']</span></div>';
+  }).join("")+'<div class="row"><button class="btn" id="tSave">Enregistrer les actions</button></div>';
+  $("tSave").onclick=function(){
+    PREV_T.forEach(function(r){put("strat",uid(),{date:today(),zone:r.zone||"",resp:r.resp||"",action:r.action,ech:r.ech||"",statut:r.statut||"À faire"})});
+    PREV_T=[];$("tPrev").innerHTML="";$("tTxt").value="";
+  };
+}
+/* Années proposées : l'année en cours et les 5 années suivantes */
+function fillYears(){
+  var sel=$("rYear");if(!sel)return;
+  var cur=new Date().getFullYear(),keep=sel.value;
+  sel.innerHTML="";
+  for(var y=cur;y<=cur+5;y++){
+    var o=document.createElement("option");o.value=String(y);
+    var n=SAIS.filter(function(x){return String(x.date).slice(0,4)===String(y)}).length;
+    o.textContent=y+(n?"":" (aucune donnée)");
+    sel.appendChild(o);
+  }
+  sel.value=keep||String(cur);
+}
+/* Liste des mois en français ; le choix met la date de référence sur le mois sélectionné */
+var MOIS_FR=["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+function fillMois(){
+  var sel=$("rMois");if(!sel)return;
+  var mm=($("rDate").value||today()).slice(5,7);
+  sel.innerHTML="";
+  MOIS_FR.forEach(function(nom,i){var o=document.createElement("option");o.value=("0"+(i+1)).slice(-2);o.textContent=nom;sel.appendChild(o)});
+  sel.value=mm;
+}
+$("rMois").addEventListener("change",function(){
+  var d=$("rDate").value||today();
+  $("rDate").value=d.slice(0,5)+$("rMois").value+d.slice(7);
+  renderRecap();
+});
+function renderRapports(){
+  if($("rDate")&&!$("rDate").value)$("rDate").value=today();
+  fillYears();
+  if($("rYear")&&$("rDate").value)$("rYear").value=$("rDate").value.slice(0,4);
+  fillMois();
+  fillKind();
+  if(typeof renderRecap==="function")renderRecap();
+  var sel=$("rWho");var cur=sel.value;sel.innerHTML="";
+  var o=document.createElement("option");o.value="";o.textContent="Toute l'équipe";sel.appendChild(o);
+  activeTeam().forEach(function(c){var q=document.createElement("option");q.value=bareId(c.id);q.textContent=c.nom+" ("+c.ville+")";sel.appendChild(q)});
+  if(cur)sel.value=cur;
+  if(!$("rDate").value)$("rDate").value=today();
+}
+function renderAvis(){
+  var a=AVIS[0];
+  $("avOut").innerHTML=a?'<div class="note">Avis du '+fr(a.date)+'</div><div class="out">'+esc(a.text)+'</div>':'';
+}
+function loadParams(){
+  if(document.activeElement&&document.activeElement.closest&&document.activeElement.closest("#t-params"))return;
+  $("cOc").value=fmt(CFG.oc);$("cOv").value=CFG.ov;$("cSeuil").value=CFG.seuil;
+  $("cMode").value=CFG.mode;$("cWk").value=CFG.wk;
+  $("cFer").value=CFG.fer.map(fr).join(", ");
+  $("cDebut").value=CFG.debut||"";
+  fillVoices();
+}
+/* Diagnostic : l'état réel, à lire en cas de problème */
+function renderDiag(){
+  var el=$("diag");if(!el)return;
+  var lines=[
+    "Base connectée : "+(DB?"oui":"non"),
+    "Connexion active : "+(SYNC.online?"oui":"non")+" (dernière réception "+(SYNC.last||"-")+")",
+    "Commerciaux chargés : "+TEAM.length+" (actifs : "+activeTeam().length+")",
+    "Identifiants commerciaux : "+TEAM.map(function(c){return bareId(c.id)+"="+c.nom}).join(" | "),
+    "Saisies chargées : "+SAIS.length+" · Notes : "+NOTES.length+" · Actions : "+STRAT.length,
+    "Date de début du suivi : "+(CFG.debut?fr(CFG.debut):"non définie"),
+    "Dernière écriture : "+SYNC.lastWrite,
+    "Dernière suppression : "+SYNC.lastDel,
+    "Dernière erreur : "+SYNC.lastErr
+  ];
+  var ids=activeTeam().map(function(c){return bareId(c.id)}),m=period("m",today()),A=clip(m.a);
+  var viaStats=stats(m.a,m.b,ids).tot.ca,viaRaw=0;
+  SAIS.forEach(function(x){if(x.date>=A&&x.date<=m.b&&ids.indexOf(bareId(x.com))>=0)viaRaw+=num(x.ca)});
+  var viaRecap=recapModel("m",today()).tot.ca;
+  lines.push("Contrôle des totaux du mois : "+((viaStats===viaRaw&&viaRaw===viaRecap)?"OK ("+money(viaRaw)+")":"ÉCART (tableau "+money(viaStats)+", saisies "+money(viaRaw)+", récap "+money(viaRecap)+")"));
+  el.textContent=lines.join("\n");
+}
+
+
+/* ==================== Rapports texte ==================== */
+function rapport(kind,ref,who){
+  var P=period(kind,ref),ids=who?[who]:activeTeam().map(function(c){return bareId(c.id)});
+  var S=stats(P.a,P.b,ids),PS=stats(P.pa,P.pb,ids);
+  if(!S.tot.n)return P.lbl+"\n\nAucune donnée enregistrée sur cette période.";
+  var L=[P.lbl,""];
+  if(who){
+    var c=byId(who);if(!c)return "Commercial introuvable.";
+    L.push(bilan(c.nom+" · "+c.ville,S.per[who],objOf(c,P.a,P.b),PS.per[who]));
+  }else{
+    var tob={ca:0,v:0};
+    activeTeam().forEach(function(c){
+      var id=bareId(c.id),ob=objOf(c,P.a,P.b);tob.ca+=ob.ca;tob.v+=ob.v;
+      if(!S.per[id].n)L.push(c.nom+" · "+c.ville+" : aucune donnée enregistrée.","");
+      else L.push(bilan(c.nom+" · "+c.ville,S.per[id],ob,PS.per[id]),"");
+    });
+    L.push(bilan("TOTAL ÉQUIPE",S.tot,tob,PS.tot));
+  }
+  L.push("","Bonne continuation à toute l'équipe.");
+  return L.join("\n");
+}
+function rapportAll(kind,ref){
+  var P=period(kind,ref),ids=activeTeam().map(function(c){return bareId(c.id)});
+  var S=stats(P.a,P.b,ids),PS=stats(P.pa,P.pb,ids);
+  if(!S.tot.n)return P.lbl+"\n\nAucune donnée enregistrée sur cette période.";
+  var L=[P.lbl,""];
+  activeTeam().forEach(function(c){
+    var id=bareId(c.id),ob=objOf(c,P.a,P.b);
+    if(!S.per[id].n)L.push(c.nom+" · "+c.ville+" : aucune donnée enregistrée.","");
+    else L.push(bilan(c.nom+" · "+c.ville,S.per[id],ob,PS.per[id]),"");
+  });
+  return L.join("\n");
+}
+function csvEsc(v){return '"'+String(v==null?"":v).replace(/"/g,'""')+'"'}
+function toCsv(rows){return rows.map(function(r){return r.map(csvEsc).join(";")}).join("\r\n")}
+/* Statut visible sous les exports : ce qui s'est passé et où trouver le fichier */
+function exStatus(msg,ok){
+  var e=$("exStatus");if(e){e.textContent=msg;e.style.color=ok?"var(--ok)":"var(--mid)"}
+  toast(msg);
+}
+/* Enregistre un fichier : gestionnaire de l'application, puis téléchargement direct, puis copie du contenu */
+function downloadBlob(name,data,mime){
+  try{
+    var blob=new Blob([data],{type:mime});
+    var u=URL.createObjectURL(blob),a=document.createElement("a");
+    a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();
+    setTimeout(function(){URL.revokeObjectURL(u)},4000);
+    return true;
+  }catch(e){return false}
+}
+function saveFileRaw(name,text,mime){
+  var fallback=function(){
+    if(downloadBlob(name,text,mime)){exStatus("Fichier envoyé au téléchargement : "+name+". Il est dans le dossier Téléchargements de ton appareil (ou dans la barre de téléchargements du navigateur).",true);return}
+    copyTable(text);
+  };
+  if(!DL)return fallback();
+  var p;try{p=DL.save({filename:name,data:text})}catch(e){p=Promise.reject(e)}
+  Promise.resolve(p).then(function(){exStatus("Fichier enregistré : "+name,true)},function(){fallback()});
+}
+/* Copie le tableau pour le coller directement dans Excel (Ctrl+V) */
+function copyTable(html){
+  var body=String(html).replace(/^[\s\S]*<body[^>]*>/i,"").replace(/<\/body>[\s\S]*$/i,"");
+  var plain=body.replace(/<\/(td|th)>/gi,"\t").replace(/<\/tr>/gi,"\n").replace(/<[^>]+>/g,"");
+  try{
+    if(navigator.clipboard&&window.ClipboardItem){
+      navigator.clipboard.write([new ClipboardItem({"text/html":new Blob([body],{type:"text/html"}),"text/plain":new Blob([plain],{type:"text/plain"})})]).then(function(){
+        exStatus("Téléchargement bloqué sur cet appareil : le tableau est copié. Ouvre Excel et fais Ctrl+V (ou Cmd+V).",false);
+      },function(){copyText(plain);exStatus("Téléchargement bloqué : le texte du tableau est copié. Colle-le dans Excel.",false)});
+    }else{copyText(plain);exStatus("Téléchargement bloqué : le texte du tableau est copié. Colle-le dans Excel.",false)}
+  }catch(e){copyText(plain);exStatus("Téléchargement bloqué : le texte du tableau est copié.",false)}
+}
+function saveFile(name,text){
+  saveFileRaw(name,"\ufeff"+text,"text/csv;charset=utf-8");
+}
+
+/* ==================== Stratégie et avis ==================== */
+function parseActions(text){
+  var out=[];
+  String(text||"").split(/\r?\n/).forEach(function(line){
+    var l=line.trim().replace(/^[-•*\d.)\s]+/,"");
+    if(l.length<4)return;
+    var st=/fait|termin/i.test(l)?"Fait":(/bloqu/i.test(l)?"Bloqué":(/en cours/i.test(l)?"En cours":"À faire"));
+    out.push({zone:"",resp:"",action:l,ech:"",statut:st});
+  });
+  return out;
+}
+$("tEx").addEventListener("click",async function(){
+  var t=$("tTxt").value.trim();if(!t){toast("Collez d'abord un texte.");return}
+  PREV_T=parseActions(t);
+  if(!PREV_T.length&&SAMPLE){
+    try{var r=await SAMPLE.json("Extrais les actions de ce texte. Réponds uniquement avec un tableau JSON : {zone, responsable, action, echeance (AAAA-MM-JJ ou null), statut (À faire, En cours, Fait, Bloqué)}. Texte :\n\n"+t,{cache:false});
+      PREV_T=(Array.isArray(r)?r:[r]).filter(function(x){return x&&x.action}).map(function(x){return {zone:x.zone||"",resp:x.responsable||"",action:x.action,ech:x.echeance||"",statut:x.statut||"À faire"}})}catch(e){}
+  }
+  if(!PREV_T.length)toast("Aucune action identifiée.");
+  renderPrevT();
+});
+$("aSave").addEventListener("click",function(){
+  var a=$("aAct").value.trim();if(!a){toast("Indiquez l'action.");return}
+  if(put("strat",uid(),{date:today(),zone:$("aZone").value.trim(),resp:$("aResp").value.trim(),action:a,ech:$("aEch").value,statut:$("aSt").value})){
+    ["aZone","aResp","aAct","aEch"].forEach(function(i){$(i).value=""});
+  }
+});
+$("aCsv").addEventListener("click",function(){
+  var rows=[["Date","Zone","Responsable","Action","Échéance","Statut"]];
+  STRAT.slice().sort(function(a,b){return a.date<b.date?-1:1}).forEach(function(x){rows.push([x.date,x.zone,x.resp,x.action,x.ech,x.statut])});
+  saveFile("strategie-commerciale.csv",toCsv(rows));
+});
+$("avGen").addEventListener("click",async function(){
+  if(!SAMPLE){toast("Avis indisponible : service non connecté.");return}
+  var b=$("avGen");b.disabled=true;b.textContent="Analyse en cours…";
+  var data={equipe:activeTeam().map(function(c){return {nom:c.nom,ville:c.ville}}),objectif:CFG,debut_suivi:CFG.debut,saisies:SAIS.slice().sort(function(a,b){return a.date<b.date?1:-1}).slice(0,80),strategie:STRAT,notes:NOTES.slice(0,20)};
+  var inst="Tu es un directeur commercial. Rédige l'avis dans cet ordre exact, en français, sans mise en forme : 1) VERDICT : une phrase avec un chiffre (CA en % de l'objectif à date). 2) CONSTATS : une ligne par commercial avec CA, % de l'objectif, taux de visite, taux d'actifs et une cause probable. 3) PRIORITÉS : trois maximum, chacune avec l'action, le responsable, la date limite, l'indicateur mesurable et la valeur cible. 4) À VÉRIFIER : les données douteuses ou manquantes. 5) REVUE : la date du prochain point. Règles : chaque affirmation cite un chiffre des données fournies ; interdit d'écrire améliorer, renforcer, dynamiser sans chiffre et date ; ne rien inventer ; 300 mots maximum.\n\nDonnées :\n"+JSON.stringify(data);
+  try{
+    var r=await SAMPLE(inst,{cache:false});
+    var out=String(typeof r==="string"?r:((r&&r.text)||"")).trim();
+    if(out)put("avis",uid(),{date:today(),text:out});else toast("Pas de réponse pour le moment.");
+  }catch(e){toast("Avis indisponible : "+errCode(e))}
+  b.disabled=false;b.textContent="Demander un avis";
+});
+
+/* Avis chiffré : calculé à partir des données, sans service de rédaction */
+function avisChiffre(){
+  var m=recapModel("m",today());
+  if(m.empty)return "Aucune donnée ce mois-ci : pas encore d'avis chiffré.";
+  var L=[],t=today(),revue=fr(addD(t,7)),echeance=fr(addD(t,7));
+  var ok=m.rows.filter(function(r){return r.n&&pct(r.st.ca,r.ob.ca)>=80}).length;
+  var caPct=pct(m.tot.ca,m.tob.ca);
+  L.push("VERDICT : équipe à "+caPct+" % de l'objectif de CA à date ("+money(m.tot.ca)+" sur "+money(m.tob.ca)+"), "+ok+" commercial(aux) sur "+m.rows.length+" au-dessus de 80 %.");
+  L.push("");L.push("CONSTATS :");
+  var causes=[];
+  m.rows.forEach(function(r){
+    var tv=pct(r.st.vis,r.ob.v),ca=pct(r.st.ca,r.ob.ca),cause;
+    if(!r.n)cause="aucune saisie : vérifier la remontée des données";
+    else if(ca>=100)cause="objectifs atteints : maintenir le rythme";
+    else if(tv>=80&&r.taux<80){cause="beaucoup de visites mais peu d'actifs : relance insuffisante";causes.push({r:r,type:"relance"})}
+    else if(tv<80){cause="peu de visites : planifier davantage de visites";causes.push({r:r,type:"visite"})}
+    else{cause="visites correctes mais CA faible : travailler la conversion et les produits";causes.push({r:r,type:"conversion"})}
+    L.push("- "+r.nom+" ("+r.ville+") : CA "+money(r.st.ca)+" ("+ca+" % de l'objectif), taux de visite "+tv+" %, taux d'actifs "+r.taux+" %. Cause probable : "+cause+".");
+  });
+  L.push("");L.push("PRIORITÉS :");
+  causes.sort(function(a,b){return pct(a.r.st.ca,a.r.ob.ca)-pct(b.r.st.ca,b.r.ob.ca)});
+  causes.slice(0,3).forEach(function(c,i){
+    var r=c.r,act,ind,cible;
+    if(c.type==="relance"){act="relancer les clients visités non encore actifs";ind="taux d'actifs";cible="80 %"}
+    else if(c.type==="visite"){act="planifier des visites chez les clients prospects";ind="taux de visite";cible="100 %"}
+    else{act="travailler la conversion des visites en ventes";ind="CA en % de l'objectif";cible="80 %"}
+    L.push((i+1)+". "+r.nom+" : "+act+". Responsable : le responsable commercial. Date limite : "+echeance+". Indicateur : "+ind+". Cible : "+cible+".");
+  });
+  if(!causes.length)L.push("Aucune priorité : objectifs atteints.");
+  L.push("");L.push("À VÉRIFIER :");
+  L.push(analyseTexte("qualite",m));
+  L.push("");L.push("REVUE : prochain point le "+revue+", sur les mêmes indicateurs.");
+  return L.join("\n");
+}
+$("avLocal").addEventListener("click",function(){
+  var txt=avisChiffre();
+  $("avOut").innerHTML='<div class="note">Avis chiffré du '+fr(today())+'</div><div class="out">'+esc(txt)+'</div>';
+  put("avis",uid(),{date:today(),text:txt});
+});
+
+/* ==================== Lecture audio (voix du navigateur, en français) ==================== */
+function speak(text,voiceName){
+  if(!("speechSynthesis" in window)){toast("Lecture audio non disponible sur cet appareil.");return}
+  /* on ne lit pas la mise en forme : astérisques, dièses, puces, tirets de liste */
+  var clean=String(text||"").replace(/\*+/g," ").replace(/[#_`~|>]+/g," ").replace(/^\s*[-•]\s*/gm,"").replace(/\s+/g," ").trim();
+  if(!clean){toast("Rien à lire.");return}
+  window.speechSynthesis.cancel();
+  var u=new SpeechSynthesisUtterance(clean);
+  u.lang="fr-FR";u.rate=0.95;
+  var voices=allVoices();
+  var want=voiceName||CFG.voix;
+  var chosen=voices.filter(function(x){return x.name===want})[0];
+  var fr=voices.filter(function(x){return /^fr/i.test(x.lang)})[0];
+  if(chosen)u.voice=chosen;else if(fr)u.voice=fr;
+  window.speechSynthesis.speak(u);
+}
+function allVoices(){return ("speechSynthesis" in window&&window.speechSynthesis.getVoices)?window.speechSynthesis.getVoices():[]}
+function fillVoices(){
+  var sel=$("cVoix");if(!sel)return;
+  var v=allVoices();
+  sel.innerHTML="";
+  if(!v.length){var o=document.createElement("option");o.value="";o.textContent="Aucune voix détectée sur cet appareil";sel.appendChild(o);return}
+  var fr=v.filter(function(x){return /^fr/i.test(x.lang)}),other=v.filter(function(x){return !/^fr/i.test(x.lang)});
+  fr.concat(other).forEach(function(x){
+    var o=document.createElement("option");o.value=x.name;
+    o.textContent=x.name+" ("+x.lang+")";
+    sel.appendChild(o);
+  });
+  if(CFG.voix&&v.some(function(x){return x.name===CFG.voix}))sel.value=CFG.voix;
+  else if(fr.length)sel.value=fr[0].name;
+}
+if("speechSynthesis" in window&&window.speechSynthesis.addEventListener)window.speechSynthesis.addEventListener("voiceschanged",fillVoices);
+$("cVoixTest").addEventListener("click",function(){speak("Bonjour, ceci est un test de la voix de lecture.",$("cVoix").value)});
+function stopSpeak(){if("speechSynthesis" in window)window.speechSynthesis.cancel()}
+function pauseSpeak(){
+  if(!("speechSynthesis" in window)||!window.speechSynthesis.speaking){toast("Aucune lecture en cours.");return}
+  window.speechSynthesis.pause();toast("Lecture en pause.");
+}
+function resumeSpeak(){
+  if(!("speechSynthesis" in window)||!window.speechSynthesis.paused){toast("Aucune lecture en pause.");return}
+  window.speechSynthesis.resume();toast("Lecture reprise.");
+}
+function stratText(){
+  if(!STRAT.length)return "Aucune action enregistrée.";
+  return "Plan d'actions. "+STRAT.slice().sort(function(a,b){var ea=a.ech||"9999",eb=b.ech||"9999";return ea<eb?-1:(ea>eb?1:0)}).map(function(x,i){
+    return "Action "+(i+1)+" : "+x.action+". Zone : "+(x.zone||"non précisée")+". Responsable : "+(x.resp||"non désigné")+". Échéance : "+(x.ech?fr(x.ech):"non fixée")+". Statut : "+x.statut+".";
+  }).join(" ");
+}
+$("stListen").addEventListener("click",function(){speak(stratText())});
+$("stStop").addEventListener("click",stopSpeak);
+$("stPause").addEventListener("click",pauseSpeak);
+$("stResume").addEventListener("click",resumeSpeak);
+$("avListen").addEventListener("click",function(){speak(AVIS[0]?AVIS[0].text:"Aucun avis enregistré.")});
+$("avPause").addEventListener("click",pauseSpeak);
+$("avResume").addEventListener("click",resumeSpeak);
+$("avStop").addEventListener("click",stopSpeak);
+$("rListen").addEventListener("click",function(){
+  var kind=$("rKind").value,m=recapModel(kind,$("rDate").value||today(),$("rWho").value);
+  speak(analyseLocal(m));
+});
+$("rStop").addEventListener("click",stopSpeak);
+$("rPause").addEventListener("click",pauseSpeak);
+$("rResume").addEventListener("click",resumeSpeak);
+
+/* ==================== Barre d'actions unique par onglet ==================== */
+function toolbar(items){
+  var w=document.createElement("div");w.className="tools";
+  var sel=document.createElement("select");sel.className="tools-sel";sel.setAttribute("aria-label","Choisir une action");
+  items.forEach(function(it){var o=document.createElement("option");o.value=it.id;o.textContent=it.label;sel.appendChild(o)});
+  var go=document.createElement("button");go.type="button";go.className="btn mini";go.textContent="Lancer";
+  go.addEventListener("click",function(){var b=document.getElementById(sel.value);if(b)b.click()});
+  w.appendChild(sel);w.appendChild(go);return w;
+}
+function hideRowOf(id){var e=document.getElementById(id);if(e&&e.parentElement)e.parentElement.style.display="none"}
+(function(){
+  var st=$("t-strat"),ra=$("t-rapports");
+  /* Stratégie : barre placée en bas, après l'avis de Claude */
+  st.appendChild(toolbar([
+    {id:"stListen",label:"Écouter les actions"},
+    {id:"avListen",label:"Écouter l'avis"},
+    {id:"stPause",label:"Pause"},
+    {id:"stResume",label:"Reprendre"},
+    {id:"stStop",label:"Arrêter"}
+  ]));
+  ["stListen","avListen"].forEach(hideRowOf);
+  /* Rapports : deux barres en bas du récapitulatif (lecture et copie, puis rapports et exports) */
+  ra.appendChild(toolbar([
+    {id:"anListen",label:"Écouter l'analyse"},
+    {id:"rListen",label:"Écouter le récapitulatif"},
+    {id:"anCopy",label:"Copier l'analyse"},
+    {id:"rCopy",label:"Copier le récapitulatif"},
+    {id:"rWa",label:"Ouvrir dans WhatsApp"},
+    {id:"rAnalyWa",label:"Envoyer l'analyse sur WhatsApp"},
+    {id:"anPause",label:"Pause"},
+    {id:"anResume",label:"Reprendre"},
+    {id:"anStop",label:"Arrêter"}
+  ]));
+  $("rOut").insertAdjacentElement("afterend",toolbar([
+    {id:"rPdf",label:"Rapport PDF du mois"},
+    {id:"rPdfW",label:"Rapport PDF de la semaine"},
+    {id:"rXls",label:"Exporter en Excel"},
+    {id:"rCsv",label:"Exporter les données (CSV)"},
+    {id:"hjPdf",label:"Historique journalier PDF"},
+    {id:"hjXls",label:"Historique journalier Excel"}
+  ]));
+  var stEl=document.createElement("div");stEl.id="exStatus";stEl.className="note";stEl.style.cssText="font-weight:600;margin:6px 0 14px;min-height:1.2em";
+  $("rOut").nextElementSibling.insertAdjacentElement("afterend",stEl);
+  ["anListen","rListen","anCopy","anPause","rAnalyWa","rAnalyCopy"].forEach(hideRowOf);
+  ["rCopy","rWa","rPdf","rPdfW","rXls","rCsv"].forEach(function(id){var e=document.getElementById(id);if(e)e.style.display="none"});
+})();
+
+/* ==================== Événements ==================== */
+document.querySelectorAll(".nv button").forEach(function(b){
+  b.addEventListener("click",function(){
+    document.querySelectorAll(".nv button").forEach(function(x){x.classList.remove("on")});
+    document.querySelectorAll(".tab").forEach(function(x){x.classList.remove("on")});
+    b.classList.add("on");$("t-"+b.getAttribute("data-tab")).classList.add("on");
+    if(b.getAttribute("data-tab")==="params")loadParams();
+
+    renderAll();
+  });
+});
+$("sCa").addEventListener("input",function(){var v=$("sCa").value.replace(/\D/g,"");$("sCa").value=v?fmt(+v):""});
+$("xEx").addEventListener("click",async function(){
+  var t=$("xTxt").value.trim();if(!t){toast("Collez un compte rendu.");return}
+  var d=$("sDate").value||today();
+  PREV=parseCR(t,d);
+  if(!PREV.length&&SAMPLE){
+    try{
+      var noms=activeTeam().map(function(c){return c.nom+" ("+c.ville+")"}).join(", ");
+      var r=await SAMPLE.json("Extrais les données de ce compte rendu. Réponds uniquement avec un tableau JSON, un objet par commercial : commercial, date (AAAA-MM-JJ), ca, visites, actifs, references (nombres ou null). Commerciaux connus : "+noms+". N'invente rien.\n\n"+t,{cache:false});
+      PREV=(Array.isArray(r)?r:[r]).filter(function(x){return x}).map(function(x){return {brut:String(x.commercial||""),com:matchCom(x.commercial)||"",date:x.date||d,ca:num(x.ca),vis:num(x.visites),act:num(x.actifs),ref:num(x.references)}});
+    }catch(e){toast("Lecture automatique indisponible : saisissez à la main.")}
+  }
+  PREV.forEach(function(x){if(!x.com)x.com=matchAllIn(t)});
+  /* date trouvée dans le compte rendu : utilisée si la date du site est vide */
+  var rd=PREV.length?PREV[0].date:"";
+  if(rd&&!$("sDate").value)$("sDate").value=rd;
+  if(rd&&$("rDate")&&!$("rDate").value)$("rDate").value=rd;
+  if(!PREV.length)toast("Aucune donnée reconnue dans ce texte.");
+  renderPrev();
+});
+$("sSave").addEventListener("click",function(){
+  var c=$("sCom").value,dt=$("sDate").value;
+  if(!c||!dt){toast("Choisissez la date et le commercial.");return}
+  var id=dt+"_"+c,old=SAIS.filter(function(s){return s.id===id})[0];
+  var rec={date:dt,com:c,ca:num($("sCa").value),vis:num($("sVis").value),act:num($("sAct").value),ref:num($("sRef").value)};
+  var iss=saisieIssues(rec);
+  if(iss.block.length){toast("Enregistrement impossible : "+iss.block[0]);return}
+  if(iss.warn.length)toast("À vérifier : "+iss.warn[0]);
+  if(put("saisies",id,rec)){
+    toast(old?"Saisie remplacée (ancienne valeur : "+money(old.ca)+").":"Saisie enregistrée.");
+    ["sCa","sVis","sAct","sRef"].forEach(function(i){$(i).value=""});
+    $("sSave").textContent="Enregistrer la saisie";
+  }
+});
+$("nSave").addEventListener("click",function(){
+  var c=$("nCom").value,dt=$("nDate").value,t=$("nTxt").value.trim();
+  if(!c||!dt||!t){toast("Commercial, date et texte sont requis.");return}
+  if(put("notes",uid(),{date:dt,com:c,texte:t})){$("nTxt").value="";toast("Note enregistrée.")}
+});
+$("uLast").addEventListener("click",function(){if(JOURNAL.length)restoreEntry(JOURNAL[0]);else toast("Rien à annuler.")});
+$("fDate").addEventListener("change",renderSaisieList);
+$("fCom").addEventListener("change",renderSaisieList);
+$("fReset").addEventListener("click",function(){$("fDate").value="";$("fCom").value="";renderSaisieList()});
+$("pAdd").addEventListener("click",function(){
+  var n=$("pNom").value.trim().toUpperCase(),v=$("pVille").value.trim();
+  if(!n||!v){toast("Indiquez le nom et la ville.");return}
+  if(TEAM.some(function(c){return fold(c.nom)===fold(n)})){toast("Ce commercial existe déjà.");return}
+  var nid=uid();
+  if(put("team",nid,{ident:nid,nom:n,ville:v,tel:$("pTel").value.trim(),actif:true,oc:0,ov:0})){
+    ["pNom","pVille","pTel"].forEach(function(i){$(i).value=""});toast(n+" ajouté.");
+  }
+});
+$("cSave").addEventListener("click",function(){
+  var fer=$("cFer").value.split(/[,;\s]+/).map(function(t){var m=t.match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{4})$/);return m?m[3]+"-"+("0"+m[2]).slice(-2)+"-"+("0"+m[1]).slice(-2):null}).filter(Boolean);
+  saveConfig({oc:num($("cOc").value)||CFG.oc,ov:num($("cOv").value)||CFG.ov,seuil:Math.min(100,Math.max(1,num($("cSeuil").value)||80)),mode:$("cMode").value,wk:$("cWk").value,fer:fer,voix:$("cVoix")?$("cVoix").value:CFG.voix});
+});
+function checkDateNote(){
+  var d=$("sDate").value,n=$("sDateNote");if(!n)return;
+  if(d&&CFG.debut&&d<CFG.debut){n.style.color="var(--mid)";n.textContent="Date antérieure au début du suivi ("+fr(CFG.debut)+") : la saisie est enregistrée mais ne sera pas comptée dans les totaux."}
+  else{n.textContent=""}
+}
+$("sDate").addEventListener("change",checkDateNote);
+$("cZero").addEventListener("click",function(){
+  var d=$("cDebut").value||today();
+  saveConfig({debut:d});
+  toast("Compteurs remis à zéro à partir du "+fr(d)+". Les saisies antérieures restent conservées.");
+});
+$("diagRefresh").addEventListener("click",renderDiag);
+$("bkp").addEventListener("click",function(){
+  var all={exporte_le:today(),config:CFG,equipe:TEAM,saisies:SAIS,notes:NOTES,strategie:STRAT,avis:AVIS,journal:JOURNAL};
+  saveFile("sauvegarde-pilotage-"+today()+".json",JSON.stringify(all,null,2));
+  saveConfig({dernierExport:today()});
+});
+$("rGen").addEventListener("click",function(){$("rOut").value=rapport($("rKind").value,$("rDate").value,$("rWho").value)});
+$("rAll").addEventListener("click",function(){$("rOut").value=rapportAll($("rKind").value,$("rDate").value)});
+$("rCopy").addEventListener("click",function(){var t=$("rOut");t.select();try{navigator.clipboard.writeText(t.value)}catch(e){document.execCommand("copy")}toast("Récap copié.")});
+$("rWa").addEventListener("click",function(){window.open("https://wa.me/?text="+encodeURIComponent($("rOut").value),"_blank")});
+$("rCsv").addEventListener("click",function(){
+  var P=period($("rKind").value,$("rDate").value),A=clip(P.a);
+  var rows=[["Date","Commercial","Ville","CA (Ar)","Clients visités","Clients actifs","Produits référencés"]];
+  SAIS.filter(function(s){return s.date>=A&&s.date<=P.b}).sort(function(a,b){return a.date<b.date?-1:1}).forEach(function(s){
+    var c=byId(s.com);rows.push([s.date,c?c.nom:"",c?c.ville:"",s.ca,s.vis,s.act,s.ref]);
+  });
+  saveFile("donnees-"+A+"-"+P.b+".csv",toCsv(rows));
+});
+$("rPdf").addEventListener("click",function(){
+  try{var r=buildMonthlyPdf($("rDate").value||today(),"m");savePdf(r.bytes,r.name);toast("Rapport PDF prêt.")}
+  catch(e){toast("Rapport impossible : "+errCode(e))}
+});
+$("rPdfW").addEventListener("click",function(){
+  try{var r=buildMonthlyPdf($("rDate").value||today(),"w");savePdf(r.bytes,r.name);toast("Rapport PDF prêt.")}
+  catch(e){toast("Rapport impossible : "+errCode(e))}
+});
+$("rXls").addEventListener("click",function(){
+  var kind=$("rKind").value,ref=$("rDate").value||today(),m=recapModel(kind,ref,$("rWho").value);
+  if(m.empty){toast("Aucune donnée à exporter sur cette période.");return}
+  var num2=function(x){return Math.round(x)};
+  var h='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body><table border="1">';
+  h+='<tr><th colspan="9">'+esc(m.P.lbl)+'</th></tr>';
+  h+='<tr><th>Commercial</th><th>Ville</th><th>CA (Ar)</th><th>% objectif CA</th><th>Clients visités</th><th>% objectif visités</th><th>Clients actifs</th><th>Taux actifs (%)</th><th>Produits moy. / max</th></tr>';
+  m.rows.forEach(function(r){h+='<tr><td>'+esc(r.nom)+'</td><td>'+esc(r.ville)+'</td><td>'+num2(r.st.ca)+'</td><td>'+pct(r.st.ca,r.ob.ca)+'</td><td>'+num2(r.st.vis)+'</td><td>'+pct(r.st.vis,r.ob.v)+'</td><td>'+num2(r.st.act)+'</td><td>'+r.taux+'</td><td>'+r.rs.avg+' / '+r.rs.max+'</td></tr>'});
+  h+='<tr><td><b>TOTAL ÉQUIPE</b></td><td></td><td>'+num2(m.tot.ca)+'</td><td>'+pct(m.tot.ca,m.tob.ca)+'</td><td>'+num2(m.tot.vis)+'</td><td>'+pct(m.tot.vis,m.tob.v)+'</td><td>'+num2(m.tot.act)+'</td><td>'+m.taux+'</td><td>'+m.trs.avg+' / '+m.trs.max+'</td></tr>';
+  h+='</table></body></html>';
+  saveFileRaw("recap-"+m.P.a+".xls",h,"application/vnd.ms-excel");
+});
+/* Actions délégué : annulation, édition, suppression, équipe */
+document.addEventListener("click",function(e){
+  var t=e.target;if(!t||!t.getAttribute)return;
+  var jid=t.getAttribute("data-undo");
+  if(jid){restoreById(jid);return}
+  var ed=t.getAttribute("data-edit");
+  if(ed){
+    var x=SAIS.filter(function(z){return z.id===ed})[0];if(!x)return;
+    $("sDate").value=x.date;$("sCom").value=bareId(x.com);$("sCa").value=fmt(x.ca);
+    $("sVis").value=num(x.vis);$("sAct").value=num(x.act);$("sRef").value=num(x.ref);
+    $("sSave").textContent="Enregistrer la correction";
+    window.scrollTo(0,0);toast("Corrigez puis enregistrez : la saisie sera remplacée.");return;
+  }
+  var col=t.getAttribute("data-del"),did=t.getAttribute("data-id");
+  if(col){
+    var armed=ARMED&&ARMED.col===col&&ARMED.id===did&&(Date.now()-ARMED.t)<10000;
+    if(!armed){
+      ARMED={col:col,id:did,t:Date.now()};
+      renderAll();toast("Cliquez à nouveau sur Confirmer pour supprimer.");
+      setTimeout(renderAll,10100);return;
+    }
+    ARMED=null;
+    var obj=localOf(col).filter(function(z){return z.id===did})[0];
+    if(!obj){toast("Élément introuvable : rafraîchissez la page.");return}
+    del(col,did,obj);return;
+  }
+  var s=t.getAttribute("data-save");
+  if(s){
+    var c=byId(s);if(!c)return;
+    var g=function(f){return document.querySelector('[data-t="'+s+'"][data-f="'+f+'"]')};
+    var oc=g("oc"),ov=g("ov"),ac=g("actif");
+    put("team",s,{ident:s,nom:c.nom,ville:c.ville,tel:c.tel||"",actif:ac?ac.checked:true,oc:oc?num(oc.value):0,ov:ov?num(ov.value):0});
+  }
+});
+
+/* ============ Rapport mensuel PDF ============ */
+function savePdf(bytes,name,mime){
+  mime=mime||"application/pdf";
+  var fallback=function(){if(downloadBlob(name,bytes,mime)){exStatus("Fichier envoyé au téléchargement : "+name+". Il est dans le dossier Téléchargements de ton appareil.",true)}else{exStatus("Téléchargement impossible sur cet appareil.",false)}};
+  if(!DL)return fallback();
+  var p;try{p=DL.save({filename:name,data:bytes})}catch(e){p=Promise.reject(e)}
+  Promise.resolve(p).then(function(){exStatus("Fichier enregistré : "+name,true)},function(){fallback()});
+}
+function buildMonthlyPdf(ref,kind){
+  kind=kind||"m";
+  var P=period(kind,ref),ids=activeTeam().map(function(c){return c.id});
+  var S=stats(P.a,P.b,ids),PS=stats(P.pa,P.pb,ids);
+  var NAVY="#12284c",GR="#5d6b82",y=0;
+  var d=new PDF();
+  var ml=pd(P.a).toLocaleDateString("fr-FR",{month:"long",year:"numeric"});
+  d.addPage();
+  d.rect(0,0,595,64,NAVY);
+  d.text(40,31,(kind==="w"?"Rapport hebdomadaire":"Rapport mensuel")+" d'activité commerciale",17,{b:1,c:"#ffffff"});
+  d.text(40,50,ml.charAt(0).toUpperCase()+ml.slice(1)+" · édité le "+fr(today()),9.5,{c:"#c9d4ea"});
+
+  var tob={ca:0,v:0};
+  activeTeam().forEach(function(c){var o=objOf(c,P.a,P.b);tob.ca+=o.ca;tob.v+=o.v});
+  var rs=refStats(S.tot.refs);
+  var boxes=[
+    ["CA DU MOIS",money(S.tot.ca),pct(S.tot.ca,tob.ca)+" % de l'objectif à date"],
+    ["CLIENTS VISITÉS",fmt(S.tot.vis),pct(S.tot.vis,tob.v)+" % de l'objectif"],
+    ["CLIENTS ACTIFS",fmt(S.tot.act),taObj(S.tot.act,S.tot.vis)+" % de l'objectif actifs"],
+    ["PRODUITS RÉFÉRENCÉS","moy. "+rs.avg,"maximum "+rs.max]
+  ];
+  boxes.forEach(function(b,i){
+    var x=40+i*130;
+    d.rect(x,80,124,62,"#f4f6fb","#d9dfea");
+    d.text(x+8,94,b[0],6.8,{c:GR});
+    d.text(x+8,113,b[1],b[1].length>14?9.5:11,{b:1});
+    d.text(x+8,130,b[2],6.8,{c:GR});
+  });
+
+  function ensure(h){if(y+h>790){d.addPage();y=60}}
+  function head(t){ensure(40);d.text(40,y,t,11,{b:1,c:NAVY});d.line(40,y+5,555,y+5,NAVY,0.8);y+=18}
+  function table(cols,hd,rows,totalRow){
+    ensure(18+16*(rows.length+1));
+    d.rect(40,y,515,18,NAVY);
+    var x=40;hd.forEach(function(s,i){d.text(i?x+cols[i]-4:x+5,y+12,s,7,{b:1,c:"#ffffff",al:i?"r":"l"});x+=cols[i]});
+    y+=18;
+    rows.concat(totalRow?[totalRow]:[]).forEach(function(r,ri){
+      var last=totalRow&&ri===rows.length;
+      if(last||ri%2===0)d.rect(40,y,515,16,last?"#e8eefb":"#f4f6fb");
+      var xx=40;r.forEach(function(s,i){d.text(i?xx+cols[i]-4:xx+5,y+11,String(s),7.5,{b:last,al:i?"r":"l"});xx+=cols[i]});
+      y+=16;
+    });
+    d.line(40,y,555,y,"#d9dfea",0.6);
+    y+=12;
+  }
+
+  y=166;
+  head("Résultats par commercial");
+  var cols=[105,80,42,55,42,55,55,81];
+  var rows=activeTeam().map(function(c){
+    var st=S.per[c.id],ob=objOf(c,P.a,P.b),r=refStats(st.refs);
+    return [c.nom+" · "+c.ville,fmt(st.ca),pct(st.ca,ob.ca)+" %",fmt(st.vis),pct(st.vis,ob.v)+" %",fmt(st.act),taObj(st.act,st.vis)+" %",r.avg+" / "+r.max];
+  });
+  var tr=["TOTAL ÉQUIPE",fmt(S.tot.ca),pct(S.tot.ca,tob.ca)+" %",fmt(S.tot.vis),pct(S.tot.vis,tob.v)+" %",fmt(S.tot.act),taObj(S.tot.act,S.tot.vis)+" %",rs.avg+" / "+rs.max];
+  table(cols,["Commercial","CA (Ar)","% obj.","Visités","% obj.","Actifs","Taux actifs","Produits moy./max"],rows,tr);
+
+  head("Chiffre d'affaires par semaine");
+  var wcols=[170,130,130,85];
+  var ws=addD(P.a,-((pd(P.a).getDay()+6)%7)),weeks=[];
+  for(var t=ws;t<=P.b;t=addD(t,7)){
+    var a=t<P.a?P.a:t,b=addD(t,6);if(b>P.b)b=P.b;weeks.push({a:a,b:b});
+  }
+  var wrows=weeks.map(function(w){
+    var st=stats(w.a,w.b,ids).tot,ob={ca:0};
+    activeTeam().forEach(function(c){ob.ca+=objOf(c,w.a,w.b).ca});
+    return ["Du "+fr(w.a)+" au "+fr(w.b),fmt(st.ca),ob.ca?fmt(ob.ca):"—",ob.ca?pct(st.ca,ob.ca)+" %":"—"];
+  });
+  table(wcols,["Semaine","CA équipe (Ar)","Objectif (Ar)","% objectif"],wrows,null);
+
+  head("Analyse par commercial");
+  activeTeam().forEach(function(c){
+    var ob=objOf(c,P.a,P.b);
+    ensure(60);
+    if(!S.per[c.id].n){y=d.para(40,y,c.nom+" · "+c.ville+" : aucune donnée enregistrée sur ce mois.",515,8.5)+6;return}
+    y=d.para(40,y,bilan(c.nom+" · "+c.ville,S.per[c.id],ob,PS.per[c.id]),515,8.3)+8;
+  });
+
+  ensure(60);
+  y=d.para(40,y+4,"Méthode : les objectifs sont calculés sur les jours travaillés du calendrier (jours fériés fixes et jours non travaillés saisis exclus). Taux clients actifs : "+CFG.seuil+" % des clients visités = 100 % de l'objectif. Les produits référencés sont donnés en moyenne et en maximum des saisies quotidiennes. Variations : comparaison avec le mois précédent.",515,7.4,{c:GR});
+
+  var N=d.count();
+  for(var i=0;i<N;i++){
+    d.setPage(i);
+    d.line(40,812,555,812,"#d9dfea",0.5);
+    d.text(40,825,"Rapport confidentiel - usage interne",7.5,{c:GR});
+    d.text(555,825,"Page "+(i+1)+"/"+N,7.5,{c:GR,al:"r"});
+  }
+  return {bytes:d.out(),name:(kind==="w"?"rapport-semaine-"+P.a:"rapport-mensuel-"+P.a.slice(0,7))+".pdf"};
+}
+
+
+
+/* ==================== Graphique combiné du tableau de bord ==================== */
+function shortK(v){return v>=1e6?(v/1e6).toFixed(1).replace(".",",")+" M":(v>=1e3?Math.round(v/1e3)+" k":String(Math.round(v)))}
+
+
+
+/* Histogramme groupé et empilé : par commercial, le CA réalisé est empilé par semaine,
+   et l'objectif à date est une barre à côté. */
+var WEEK_COLORS=["#1f4fb8","#3a74e0","#5b93f0","#8fb5f7","#c2d7fb","#7d8fb3"];
+function histoChart(names,sub,segs,weekLabels,totals,obj){
+  var n=names.length;
+  if(!n)return '<div class="note">Aucun commercial actif.</div>';
+  var grand=totals.concat(obj).reduce(function(a,b){return a+b},0);
+  if(!grand)return '<div class="note">Pas encore de chiffre d\'affaires sur la période.</div>';
+  var W=680,H=360,pl=64,pr=16,pt=28,pb=92,iw=W-pl-pr,ih=H-pt-pb;
+  var tops=totals.map(function(t,i){return Math.max(t,obj[i]||0)});
+  var max=Math.max.apply(null,tops.concat([1]))*1.12;
+  var Y=function(v){return pt+ih-ih*v/max};
+  var gw=iw/n,bw=Math.min(52,gw*0.34),gap=8;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="CA par commercial, empilé par semaine, et objectif à date">';
+  for(var k=0;k<=4;k++){
+    var v=max*k/4,y=Y(v);
+    s+='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y+'" y2="'+y+'" stroke="#e3e9f4" stroke-width="1"/>';
+    s+='<text x="'+(pl-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="#5a6882">'+shortK(v)+'</text>';
+  }
+  for(var i=0;i<n;i++){
+    var gx=pl+gw*i+gw/2,xr=gx-bw-gap/2,xo=gx+gap/2;
+    var base=0;
+    segs.forEach(function(seg,w){
+      var v=seg[i]||0;if(!v)return;
+      var y1=Y(base+v),y0=Y(base);
+      s+='<rect x="'+xr+'" y="'+y1+'" width="'+bw+'" height="'+(y0-y1)+'" fill="'+WEEK_COLORS[w%WEEK_COLORS.length]+'"><title>'+esc(names[i]+" · "+weekLabels[w]+" : "+money(v))+'</title></rect>';
+      base+=v;
+    });
+    if(totals[i])s+='<text x="'+(xr+bw/2)+'" y="'+(Y(totals[i])-6)+'" text-anchor="middle" font-size="11" font-weight="700" fill="#121a2b">'+shortK(totals[i])+'</text>';
+    var yo=Y(obj[i]||0);
+    s+='<rect x="'+xo+'" y="'+yo+'" width="'+bw+'" height="'+(pt+ih-yo)+'" rx="4" fill="#d5dcea"><title>'+esc(names[i]+" · objectif à date : "+money(obj[i]||0))+'</title></rect>';
+    if(obj[i])s+='<text x="'+(xo+bw/2)+'" y="'+(yo-6)+'" text-anchor="middle" font-size="11" font-weight="600" fill="#5a6882">'+shortK(obj[i])+'</text>';
+    s+='<text x="'+gx+'" y="'+(H-pb+18)+'" text-anchor="middle" font-size="12" font-weight="700" fill="#121a2b">'+esc(names[i])+'</text>';
+    s+='<text x="'+gx+'" y="'+(H-pb+34)+'" text-anchor="middle" font-size="11" fill="#5a6882">'+esc(sub[i])+'</text>';
+  }
+  var ly=H-16,lx=pl;
+  weekLabels.forEach(function(l,w){
+    s+='<rect x="'+lx+'" y="'+(ly-9)+'" width="11" height="11" rx="2" fill="'+WEEK_COLORS[w%WEEK_COLORS.length]+'"/><text x="'+(lx+16)+'" y="'+ly+'" font-size="11" fill="#5a6882">'+esc(l)+'</text>';
+    lx+=28+l.length*6.2;
+  });
+  s+='<rect x="'+lx+'" y="'+(ly-9)+'" width="11" height="11" rx="2" fill="#d5dcea"/><text x="'+(lx+16)+'" y="'+ly+'" font-size="11" fill="#5a6882">Objectif à date</text>';
+  return s+'</svg>';
+}
+
+/* ==================== Historique journalier par commercial ==================== */
+/* Période de l'historique journalier : un « jour » seul ne suffit pas pour un historique,
+   on prend donc le mois de la date choisie (la semaine et l'année restent telles quelles) */
+/* L'historique journalier est toujours affiché : il couvre le mois de la date choisie, quel que soit le menu Période */
+function histoPeriod(){
+  return period("m",$("rDate").value||today());
+}
+function histoJour(P){
+  var A=clip(P.a),ids=activeTeam().map(function(c){return bareId(c.id)});
+  var rows=SAIS.filter(function(x){return x.date>=A&&x.date<=P.b&&ids.indexOf(bareId(x.com))>=0})
+    .map(function(x){var c=byId(x.com);return {date:x.date,nom:c?c.nom:"?",ville:c?c.ville:"",id:bareId(x.com),ca:num(x.ca),vis:num(x.vis),act:num(x.act),ref:num(x.ref)}})
+    .sort(function(a,b){return a.date<b.date?-1:(a.date>b.date?1:(a.nom<b.nom?-1:1))});
+  var summary=activeTeam().map(function(c){
+    var id=bareId(c.id),mine=rows.filter(function(r){return r.id===id});
+    var sum=function(k){return mine.reduce(function(a,r){return a+r[k]},0)};
+    var jours=mine.length;
+    return {nom:c.nom,ville:c.ville,jours:jours,ca:sum("ca"),vis:sum("vis"),act:sum("act"),ref:sum("ref"),refMoy:jours?Math.round(sum("ref")/jours*10)/10:0,caMoy:jours?Math.round(sum("ca")/jours):0};
+  });
+  return {rows:rows,summary:summary};
+}
+function renderJour(){
+  var el=$("rJour");if(!el)return;
+  var P=histoPeriod();
+  var h=histoJour(P);
+  if(!h.rows.length){el.innerHTML='<div class="note">Aucune saisie sur '+esc(P.lbl)+'. Choisis une autre date ou une période plus large (Mois ou Année).</div>';return}
+  var rows=h.rows.map(function(r){return {cells:[fr(r.date),esc(r.nom)+' <span class="ts">· '+esc(r.ville)+'</span>',fmt(r.ca),fmt(r.vis),fmt(r.act),fmt(r.ref)]}});
+  var t='<div class="scroll">'+tbl(["Date","Commercial","CA (Ar)","Visités","Actifs","Produits"],rows)+'</div>';
+  var srows=h.summary.map(function(x){return {cells:[esc(x.nom),fmt(x.jours),fmt(x.ca),fmt(x.vis),fmt(x.act),fmt(x.ref),x.refMoy+" / jour"]}});
+  t+='<div class="sec">Totaux et moyennes par commercial</div>'+tbl(["Commercial","Jours saisis","CA somme (Ar)","Visités somme","Actifs somme","Produits somme","Produits moyenne"],srows);
+  el.innerHTML=t;
+}
+function histoPdf(P){
+  var h=histoJour(P),d=new PDF(),NAVY="#12284c",GR="#5d6b82",y=0;
+  var cols=[62,150,92,62,62,62,25];
+  var heads=["Date","Commercial","CA (Ar)","Visités","Actifs","Produits","j"];
+  function head(){d.rect(40,y,515,18,NAVY);var x=40;["Date","Commercial","CA (Ar)","Visités","Actifs","Produits"].forEach(function(t,i){d.text(i>1?x+cols[i]-4:x+5,y+12,t,7.5,{b:1,c:"#ffffff",al:i>1?"r":"l"});x+=cols[i]});y+=18}
+  function newPage(){d.addPage();y=60}
+  d.addPage();
+  d.rect(0,0,595,64,NAVY);
+  d.text(40,31,"Historique journalier par commercial",17,{b:1,c:"#ffffff"});
+  d.text(40,50,P.lbl+" · édité le "+fr(today()),9.5,{c:"#c9d4ea"});
+  y=86;
+  head();
+  h.rows.forEach(function(r,i){
+    if(y>780){newPage();head()}
+    if(i%2===0)d.rect(40,y,515,15,"#f4f6fb");
+    var vals=[fr(r.date),r.nom,fmt(r.ca),fmt(r.vis),fmt(r.act),fmt(r.ref)];
+    var x=40;vals.forEach(function(v,j){d.text(j>1?x+cols[j]-4:x+5,y+10.5,String(v),7.4,{al:j>1?"r":"l"});x+=cols[j]});
+    y+=15;
+  });
+  y+=18;
+  if(y>740){newPage()}
+  d.text(40,y,"Totaux et moyennes par commercial",11,{b:1,c:NAVY});y+=16;
+  d.rect(40,y,515,18,NAVY);
+  var sc=[150,50,80,70,60,65,40];
+  var sh=["Commercial","Jours","CA somme","Visités","Actifs","Produits","Moy."];
+  var x=40;sh.forEach(function(t,i){d.text(i?x+sc[i]-4:x+5,y+12,t,7.5,{b:1,c:"#ffffff",al:i?"r":"l"});x+=sc[i]});
+  y+=18;
+  h.summary.forEach(function(sx,i){
+    if(i%2===0)d.rect(40,y,515,15,"#f4f6fb");
+    var vals=[sx.nom,fmt(sx.jours),fmt(sx.ca),fmt(sx.vis),fmt(sx.act),fmt(sx.ref),String(sx.refMoy)];
+    var xx=40;vals.forEach(function(v,j){d.text(j?xx+sc[j]-4:xx+5,y+10.5,String(v),7.4,{al:j?"r":"l"});xx+=sc[j]});
+    y+=15;
+  });
+  d.text(40,y+14,"Moy. = produits moyens par jour saisi. Produits somme = total des produits vendus sur la période.",7.2,{c:GR});
+  var N=d.count();
+  for(var k=0;k<N;k++){d.setPage(k);d.line(40,812,555,812,"#d9dfea",0.5);d.text(40,825,"Rapport confidentiel - usage interne",7.5,{c:GR});d.text(555,825,"Page "+(k+1)+"/"+N,7.5,{c:GR,al:"r"})}
+  return {bytes:d.out(),name:"historique-journalier-"+P.a+"-"+P.b+".pdf"};
+}
+function histoXls(P){
+  var h=histoJour(P);
+  var x='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body>';
+  x+='<table border="1"><tr><th colspan="6">'+esc(P.lbl)+'</th></tr>';
+  x+='<tr><th>Date</th><th>Commercial</th><th>Ville</th><th>CA (Ar)</th><th>Clients visités</th><th>Clients actifs</th><th>Produits</th></tr>';
+  h.rows.forEach(function(r){x+='<tr><td>'+esc(fr(r.date))+'</td><td>'+esc(r.nom)+'</td><td>'+esc(r.ville)+'</td><td>'+Math.round(r.ca)+'</td><td>'+Math.round(r.vis)+'</td><td>'+Math.round(r.act)+'</td><td>'+Math.round(r.ref)+'</td></tr>'});
+  x+='</table><br><table border="1"><tr><th>Commercial</th><th>Jours saisis</th><th>CA somme (Ar)</th><th>Visités somme</th><th>Actifs somme</th><th>Produits somme</th><th>Produits moyenne / jour</th></tr>';
+  h.summary.forEach(function(sx){x+='<tr><td>'+esc(sx.nom)+'</td><td>'+sx.jours+'</td><td>'+Math.round(sx.ca)+'</td><td>'+Math.round(sx.vis)+'</td><td>'+Math.round(sx.act)+'</td><td>'+Math.round(sx.ref)+'</td><td>'+sx.refMoy+'</td></tr>'});
+  x+='</table></body></html>';
+  return {text:x,name:"historique-journalier-"+P.a+"-"+P.b+".xls"};
+}
+$("hjPdf").addEventListener("click",function(){
+  try{var P=histoPeriod();var r=histoPdf(P);savePdf(r.bytes,r.name);toast("Historique PDF prêt.")}
+  catch(e){toast("Historique impossible : "+errCode(e))}
+});
+/* Excel : fichier CSV (séparateur point-virgule, accents conservés), ouvert directement par Excel */
+function histoCsv(P){
+  var h=histoJour(P),rows=[];
+  rows.push([P.lbl]);
+  rows.push([]);
+  rows.push(["Date","Commercial","Ville","CA (Ar)","Clients visités","Clients actifs","Produits"]);
+  h.rows.forEach(function(r){rows.push([fr(r.date),r.nom,r.ville,Math.round(r.ca),Math.round(r.vis),Math.round(r.act),Math.round(r.ref)])});
+  rows.push([]);
+  rows.push(["Totaux et moyennes par commercial"]);
+  rows.push(["Commercial","Jours saisis","CA somme (Ar)","Visités somme","Actifs somme","Produits somme","Produits moyenne / jour"]);
+  h.summary.forEach(function(sx){rows.push([sx.nom,sx.jours,Math.round(sx.ca),Math.round(sx.vis),Math.round(sx.act),Math.round(sx.ref),sx.refMoy])});
+  return {text:toCsv(rows),name:"historique-journalier-"+P.a+"-"+P.b+".csv"};
+}
+$("hjXls").addEventListener("click",function(){
+  try{
+    var P=histoPeriod();
+    var r=histoXlsx(P);
+    savePdf(r.bytes,r.name,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+  }catch(e){exStatus("Export Excel impossible : "+errCode(e),false)}
+});
+
+/* ==================== Fichier Excel réel (.xlsx) ==================== */
+var CRC_T=(function(){var t=[];for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);t[n]=c>>>0}return t})();
+function crc32(u8){var c=0xFFFFFFFF;for(var i=0;i<u8.length;i++)c=CRC_T[(c^u8[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function zipStore(files){
+  var enc=new TextEncoder(),parts=[],central=[],offset=0;
+  files.forEach(function(f){
+    var nb=enc.encode(f.name),data=f.bytes,crc=crc32(data),sz=data.length;
+    var lh=new Uint8Array(30+nb.length),dv=new DataView(lh.buffer);
+    dv.setUint32(0,0x04034b50,true);dv.setUint16(4,20,true);dv.setUint16(6,0,true);dv.setUint16(8,0,true);
+    dv.setUint16(10,0,true);dv.setUint16(12,0x21,true);dv.setUint32(14,crc,true);dv.setUint32(18,sz,true);
+    dv.setUint32(22,sz,true);dv.setUint16(26,nb.length,true);dv.setUint16(28,0,true);lh.set(nb,30);
+    parts.push(lh,data);
+    var ch=new Uint8Array(46+nb.length),cv=new DataView(ch.buffer);
+    cv.setUint32(0,0x02014b50,true);cv.setUint16(4,20,true);cv.setUint16(6,20,true);cv.setUint16(8,0,true);
+    cv.setUint16(10,0,true);cv.setUint16(12,0,true);cv.setUint16(14,0x21,true);cv.setUint32(16,crc,true);
+    cv.setUint32(20,sz,true);cv.setUint32(24,sz,true);cv.setUint16(28,nb.length,true);cv.setUint16(30,0,true);
+    cv.setUint16(32,0,true);cv.setUint16(34,0,true);cv.setUint16(36,0,true);cv.setUint32(38,0,true);
+    cv.setUint32(42,offset,true);ch.set(nb,46);
+    central.push(ch);offset+=lh.length+sz;
+  });
+  var cdSize=central.reduce(function(a,c){return a+c.length},0);
+  var end=new Uint8Array(22),ev=new DataView(end.buffer);
+  ev.setUint32(0,0x06054b50,true);ev.setUint16(8,files.length,true);ev.setUint16(10,files.length,true);
+  ev.setUint32(12,cdSize,true);ev.setUint32(16,offset,true);
+  var all=parts.concat(central,[end]),total=all.reduce(function(a,c){return a+c.length},0),out=new Uint8Array(total),p=0;
+  all.forEach(function(c){out.set(c,p);p+=c.length});
+  return out;
+}
+function xmlEsc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&apos;"}[c]})}
+function colName(i){var s="";i++;while(i>0){var m=(i-1)%26;s=String.fromCharCode(65+m)+s;i=Math.floor((i-1)/26)}return s}
+/* rows : tableau de lignes ; chaque ligne = tableau de valeurs ; {b:true,v:...} = texte en gras */
+function xlsxBytes(rows,sheetName){
+  var sheetRows=rows.map(function(r,ri){
+    var cells=r.map(function(c,ci){
+      var ref=colName(ci)+(ri+1),bold=c&&typeof c==="object"&&c.b,v=c&&typeof c==="object"?c.v:c;
+      if(v===""||v===null||v===undefined)return "";
+      var st=bold?' s="1"':"";
+      if(typeof v==="number"&&isFinite(v))return '<c r="'+ref+'"'+st+'><v>'+v+'</v></c>';
+      return '<c r="'+ref+'" t="inlineStr"'+st+'><is><t>'+xmlEsc(v)+'</t></is></c>';
+    }).join("");
+    return '<row r="'+(ri+1)+'">'+cells+'</row>';
+  }).join("");
+  var sheet='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><cols><col min="1" max="1" width="30" customWidth="1"/><col min="2" max="8" width="18" customWidth="1"/></cols><sheetData>'+sheetRows+'</sheetData></worksheet>';
+  var files=[
+    {name:"[Content_Types].xml",bytes:new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>')},
+    {name:"_rels/.rels",bytes:new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>')},
+    {name:"xl/workbook.xml",bytes:new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="'+xmlEsc(sheetName||"Historique")+'" sheetId="1" r:id="rId1"/></sheets></workbook>')},
+    {name:"xl/_rels/workbook.xml.rels",bytes:new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>')},
+    {name:"xl/styles.xml",bytes:new TextEncoder().encode('<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><name val="Calibri"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs></styleSheet>')},
+    {name:"xl/worksheets/sheet1.xml",bytes:new TextEncoder().encode(sheet)}
+  ];
+  return zipStore(files);
+}
+/* Historique journalier au format Excel (.xlsx) */
+function histoXlsx(P){
+  var h=histoJour(P),rows=[];
+  rows.push([{b:1,v:P.lbl}]);
+  rows.push([]);
+  rows.push(["Date","Commercial","Ville","CA (Ar)","Clients visités","Clients actifs","Produits"].map(function(t){return {b:1,v:t}}));
+  h.rows.forEach(function(r){rows.push([fr(r.date),r.nom,r.ville,Math.round(r.ca),Math.round(r.vis),Math.round(r.act),Math.round(r.ref)])});
+  rows.push([]);
+  rows.push([{b:1,v:"Totaux et moyennes par commercial"}]);
+  rows.push(["Commercial","Jours saisis","CA somme (Ar)","Visités somme","Actifs somme","Produits somme","Produits moyenne / jour"].map(function(t){return {b:1,v:t}}));
+  h.summary.forEach(function(sx){rows.push([sx.nom,sx.jours,Math.round(sx.ca),Math.round(sx.vis),Math.round(sx.act),Math.round(sx.ref),sx.refMoy])});
+  return {bytes:xlsxBytes(rows,"Historique"),name:"historique-journalier-"+P.a+"-"+P.b+".xlsx"};
+}
+/* ==================== Récap en tableau et messages prêts à envoyer ==================== */
+var RMSG=[],RAI={};
+function recapModel(kind,ref,who){
+  var P=period(kind,ref),ids=who?[who]:activeTeam().map(function(c){return bareId(c.id)});
+  var S=stats(P.a,P.b,ids),PS=stats(P.pa,P.pb,ids);
+  var list=who?activeTeam().filter(function(c){return bareId(c.id)===who}):activeTeam();
+  var rows=list.map(function(c){
+    var id=bareId(c.id),st=S.per[id],ps=PS.per[id];
+    return {id:id,nom:c.nom,ville:c.ville,st:st,ps:ps,ob:objOf(c,P.a,P.b),rs:refStats(st.refs),taux:taObj(st.act,st.vis),n:st.n};
+  });
+  var tob={ca:0,v:0};
+  rows.forEach(function(r){tob.ca+=r.ob.ca;tob.v+=r.ob.v});
+  return {P:P,rows:rows,tot:S.tot,totPrev:PS.tot,tob:tob,trs:refStats(S.tot.refs),taux:taObj(S.tot.act,S.tot.vis),empty:!S.tot.n,key:kind+"|"+P.a+"|"+(who||"equipe")};
+}
+function pill(p){var c=p>=100?"ok-p":(p>=80?"mid-p":"low-p");return '<span class="pill '+c+'">'+p+' %</span>'}
+function axesOf(r){
+  var axes=[];
+  if(pct(r.st.ca,r.ob.ca)<100)axes.push("le chiffre d'affaires ("+pct(r.st.ca,r.ob.ca)+" % de l'objectif)");
+  if(pct(r.st.vis,r.ob.v)<100)axes.push("le nombre de visites");
+  if(r.taux<100)axes.push("la relance des clients visités non encore actifs");
+  if(r.rs.avg===0)axes.push("le suivi des produits référencés");
+  return axes;
+}
+function analyseLocal(m){
+  if(m.empty)return "Aucune donnée sur cette période : impossible d'établir une analyse.";
+  var L=["Bilan : CA de "+money(m.tot.ca)+", soit "+pct(m.tot.ca,m.tob.ca)+" % de l'objectif. Taux de clients actifs de "+m.taux+" % de l'objectif."];
+  var faibles=[];
+  m.rows.forEach(function(r){
+    if(!r.n){L.push("- "+r.nom+" : aucune saisie sur la période, à relancer en priorité.");faibles.push(r.nom);return}
+    var axes=axesOf(r);
+    if(axes.length){L.push("- "+r.nom+" : à travailler "+axes.join(", ")+".");faibles.push(r.nom)}
+    else L.push("- "+r.nom+" : objectifs atteints, maintenir le rythme.");
+  });
+  var worst=m.rows.filter(function(r){return r.n}).sort(function(a,b){return pct(a.st.ca,a.ob.ca)-pct(b.st.ca,b.ob.ca)})[0];
+  if(worst&&pct(worst.st.ca,worst.ob.ca)<100)L.push("Recommandation : accompagner "+worst.nom+" en priorité, dont le chiffre d'affaires est le plus éloigné de l'objectif.");
+  return L.join("\n");
+}
+function msgEquipe(m){
+  var L=["Bonjour à toute l'équipe,","","Bilan "+m.P.lbl.replace(/^Récap /,"")+" :",
+    "CA équipe : "+money(m.tot.ca)+" ("+pct(m.tot.ca,m.tob.ca)+" % de l'objectif).",
+    "Clients visités : "+fmt(m.tot.vis)+" ("+pct(m.tot.vis,m.tob.v)+" % de l'objectif).",
+    "Taux de clients actifs : "+m.taux+" % de l'objectif (80 % des visités = 100 %)."];
+  if(m.rows.length>1){L.push("");m.rows.forEach(function(r){L.push("- "+r.nom+" ("+r.ville+") : "+money(r.st.ca)+", "+pct(r.st.ca,r.ob.ca)+" % de l'objectif")})}
+  L.push("","Merci à chacun pour son engagement.");
+  return L.join("\n");
+}
+function msgCommercial(m,r){
+  var L=["Bonjour "+r.nom+",","","Votre bilan "+m.P.lbl.replace(/^Récap /,"")+" :",
+    "CA : "+money(r.st.ca)+" sur "+money(r.ob.ca)+" d'objectif ("+pct(r.st.ca,r.ob.ca)+" %).",
+    "Clients visités : "+fmt(r.st.vis)+" sur "+fmt(r.ob.v)+" ("+pct(r.st.vis,r.ob.v)+" %).",
+    "Clients actifs : "+fmt(r.st.act)+" sur "+fmt(r.st.vis)+" visités ("+r.taux+" % de l'objectif).",
+    "Produits référencés : moyenne "+r.rs.avg+", maximum "+r.rs.max+"."];
+  var axes=axesOf(r);
+  L.push("",axes.length?"Point à travailler : "+axes.join(", ")+".":"Objectifs atteints, continuez ainsi.","","Bonne continuation.");
+  return L.join("\n");
+}
+function msgBlock(title,text,idx){
+  RMSG[idx]=text;
+  return '<div class="item" style="display:block"><div class="card-line"><b>'+esc(title)+'</b><div class="acts"><button data-copy="'+idx+'">Copier</button><button data-wa="'+idx+'">WhatsApp</button></div></div><div class="out">'+esc(text)+'</div></div>';
+}
+function renderRecap(){
+  var el=$("rTable");if(!el)return;
+  fillKind();
+  var kind=$("rKind").value,ref=$("rDate").value||today(),who=$("rWho").value;
+  var m=recapModel(kind,ref,who);
+  $("rRecapTitle").textContent=m.P.lbl;
+  el.innerHTML=recapTableHtml(m);
+  RMSG=[];
+  var html=msgBlock("Message à l'équipe",msgEquipe(m),0);
+  m.rows.forEach(function(r,i){html+=msgBlock("Message pour "+r.nom,msgCommercial(m,r),i+1)});
+  $("rMsgs").innerHTML=m.empty?'<div class="note">Pas de message : aucune donnée sur cette période.</div>':html;
+  var ana=analyseLocal(m);
+  var ai=RAI[m.key];
+  $("rHisto").innerHTML=historiqueHtml();
+  renderAnalyse();
+  if($("histoBox")&&$("histoBox").style.display!=="none")renderJour();
+  $("rAnaly").innerHTML='<div class="out">'+esc(ana)+'</div>'+(ai?'<div class="sec">Analyse rédigée par Claude</div><div class="out">'+esc(ai)+'</div>':'');
+  RMSG.push(ana,ai||"");
+  $("rAnalyCopy").setAttribute("data-copy",RMSG.length-2);
+  $("rAnalyWa").setAttribute("data-wa",RMSG.length-2);
+  $("rAi").setAttribute("data-key",m.key);
+}
+/* Analyses au choix : chacune produit un texte à lire, copier ou envoyer */
+function analyseTexte(type,m){
+  if(m.empty&&type!=="strategie")return "Aucune donnée sur cette période : impossible de produire cette analyse.";
+  var ids=m.rows.map(function(r){return r.id});
+  var P=m.P,L=[];
+  if(type==="performance")return analyseLocal(m);
+  if(type==="tendance"){
+    var base=pd(P.a),months=[];
+    for(var k=2;k>=0;k--){
+      var ref=ymd(new Date(base.getFullYear(),base.getMonth()-k,1));
+      var Q=period("m",ref);
+      months.push({lbl:pd(ref).toLocaleDateString("fr-FR",{month:"long",year:"numeric"}),ca:stats(Q.a,Q.b,ids).tot.ca});
+    }
+    months.forEach(function(x){L.push(x.lbl+" : "+money(x.ca)+".")});
+    var last=months[2].ca,prev=months[1].ca;
+    if(!prev)L.push("Pas de mois précédent comparable.");
+    else{var v=Math.round((last-prev)/prev*100);L.push("Tendance : "+(v>5?"hausse":(v<-5?"baisse":"stable"))+" de "+(v>=0?"+":"")+v+" % par rapport au mois précédent.")}
+    return L.join("\n");
+  }
+  if(type==="qualite"){
+    var rows=SAIS.filter(function(x){return x.date>=P.a&&x.date<=P.b&&ids.indexOf(bareId(x.com))>=0});
+    var bad=rows.filter(function(x){return num(x.act)>num(x.vis)});
+    L.push(rows.length+" saisie(s) sur la période.");
+    if(bad.length)L.push(bad.length+" saisie(s) avec plus de clients actifs que de clients visités : à corriger.");
+    var seen={},dups=[];
+    rows.forEach(function(x){var k=bareId(x.com)+"|"+num(x.ca)+"|"+num(x.vis)+"|"+num(x.act)+"|"+num(x.ref);if(seen[k]&&num(x.ca)>0)dups.push(x);seen[k]=1});
+    if(dups.length)L.push(dups.length+" saisie(s) identique(s) à une autre date : doublon possible.");
+    m.rows.forEach(function(r){
+      if(!r.n)L.push(r.nom+" : aucune saisie sur la période.");
+      var mine=rows.filter(function(x){return bareId(x.com)===r.id});
+      var avg=mine.length?mine.reduce(function(a,x){return a+num(x.ca)},0)/mine.length:0;
+      mine.forEach(function(x){if(avg&&num(x.ca)>3*avg)L.push("CA très élevé le "+fr(x.date)+" pour "+r.nom+" ("+money(x.ca)+") : vérifier.")});
+    });
+    if(L.length===1)L.push("Aucune incohérence détectée.");
+    return L.join("\n");
+  }
+  if(type==="productivite"){
+    m.rows.forEach(function(r){
+      if(!r.n){L.push(r.nom+" : aucune donnée.");return}
+      var cv=r.st.vis?Math.round(r.st.ca/r.st.vis):0,ca=r.st.act?Math.round(r.st.ca/r.st.act):0;
+      L.push(r.nom+" : "+money(cv)+" par visite, "+money(ca)+" par client actif, produits moyens "+r.rs.avg+".");
+    });
+    var best=m.rows.filter(function(r){return r.st.vis}).sort(function(a,b){return b.st.ca/b.st.vis-a.st.ca/a.st.vis})[0];
+    if(best)L.push("Meilleure conversion par visite : "+best.nom+".");
+    return L.join("\n");
+  }
+  if(type==="portefeuille"){
+    var T=m.tot.ca;
+    m.rows.forEach(function(r){L.push(r.nom+" ("+r.ville+") : "+(T?Math.round(r.st.ca/T*100):0)+" % du CA de l'équipe.")});
+    var big=SAIS.filter(function(x){return x.date>=P.a&&x.date<=P.b&&ids.indexOf(bareId(x.com))>=0}).sort(function(a,b){return num(b.ca)-num(a.ca)})[0];
+    if(big&&T)L.push("Plus grosse saisie : "+money(big.ca)+", soit "+Math.round(num(big.ca)/T*100)+" % du CA de la période. Une seule saisie pèse-t-elle trop ? Vérifier.");
+    return L.join("\n");
+  }
+  if(type==="prevision"){
+    var A=clip(P.a),end=P.b<today()?P.b:today();
+    var el=workdays(A,end),tot=workdays(A,P.b);
+    if(!el){return "Aucun jour travaillé écoulé : pas encore de prévision."}
+    var proj=Math.round(m.tot.ca/el*tot);
+    L.push("CA réalisé : "+money(m.tot.ca)+" sur "+el+" jour(s) travaillé(s) écoulé(s) sur "+tot+".");
+    L.push("Prévision à ce rythme : "+money(proj)+".");
+    if(m.tob.ca)L.push("Soit "+Math.round(proj/m.tob.ca*100)+" % de l'objectif de la période ("+money(m.tob.ca)+").");
+    return L.join("\n");
+  }
+  if(type==="strategie"){
+    var avis=AVIS[0]?"Avis de Claude : "+AVIS[0].text:"Aucun avis enregistré. Demandez un avis dans l'onglet Stratégie.";
+    return avis+"\n\n"+stratText();
+  }
+  return "";
+}
+function renderAnalyse(){
+  var el=$("anOut");if(!el)return;
+  var m=recapModel($("rKind").value,$("rDate").value||today(),$("rWho").value);
+  el.textContent=analyseTexte($("anType").value,m);
+}
+$("anType").addEventListener("change",renderAnalyse);
+$("anCopy").addEventListener("click",function(){copyText($("anOut").textContent)});
+$("anListen").addEventListener("click",function(){speak($("anOut").textContent)});
+$("anPause").addEventListener("click",pauseSpeak);
+$("anResume").addEventListener("click",resumeSpeak);
+$("anStop").addEventListener("click",stopSpeak);
+
+/* Historique : CA par commercial sur les 6 derniers mois */
+function historiqueHtml(){
+  var ids=activeTeam().map(function(c){return bareId(c.id)});
+  if(!ids.length)return '<div class="note">Aucun commercial actif.</div>';
+  var base=today(),rows=[];
+  for(var i=5;i>=0;i--){
+    var ref=ymd(new Date(pd(base).getFullYear(),pd(base).getMonth()-i,1));
+    var P=period("m",ref),S=stats(P.a,P.b,ids),ob=0;
+    activeTeam().forEach(function(c){ob+=objOf(c,P.a,P.b).ca});
+    var cells=[pd(ref).toLocaleDateString("fr-FR",{month:"long",year:"numeric"})];
+    activeTeam().forEach(function(c){cells.push(fmt(S.per[bareId(c.id)].ca))});
+    cells.push(fmt(S.tot.ca),ob?pill(pct(S.tot.ca,ob)):"—");
+    rows.push({cells:cells,tot:i===0});
+  }
+  var heads=["Mois"].concat(activeTeam().map(function(c){return c.nom.split(" ")[0]})).concat(["Total","% objectif"]);
+  return tbl(heads,rows);
+}
+function copyText(t){
+  var ta=document.createElement("textarea");ta.value=t;ta.style.position="fixed";ta.style.opacity="0";
+  document.body.appendChild(ta);ta.select();
+  var ok=false;try{ok=document.execCommand("copy")}catch(e){}
+  ta.remove();toast(ok?"Message copié.":"Copie impossible : sélectionnez le texte.");
+}
+document.addEventListener("click",function(e){
+  var t=e.target;if(!t||!t.getAttribute)return;
+  var c=t.getAttribute("data-copy"),w=t.getAttribute("data-wa");
+  if(c!==null&&RMSG[+c]!==undefined&&t.closest("#t-rapports")){copyText(RMSG[+c]);return}
+  if(w!==null&&RMSG[+w]!==undefined&&t.closest("#t-rapports")){window.open("https://wa.me/?text="+encodeURIComponent(RMSG[+w]),"_blank");return}
+});
+$("rAi").addEventListener("click",async function(){
+  var b=$("rAi");
+  var kind=$("rKind").value,ref=$("rDate").value||today(),who=$("rWho").value;
+  var m=recapModel(kind,ref,who);
+  if(m.empty){toast("Aucune donnée à analyser sur cette période.");return}
+  if(!SAMPLE){toast("Rédaction indisponible : service non connecté.");return}
+  b.disabled=true;b.textContent="Rédaction en cours…";
+  var data={periode:m.P.lbl,equipe:{ca:m.tot.ca,objectif_ca:m.tob.ca,visites:m.tot.vis,objectif_visites:m.tob.v,taux_actifs:m.taux},commerciaux:m.rows.map(function(r){return {nom:r.nom,ville:r.ville,ca:r.st.ca,objectif_ca:r.ob.ca,visites:r.st.vis,objectif_visites:r.ob.v,actifs:r.st.act,taux_actifs:r.taux,produits_moy:r.rs.avg,produits_max:r.rs.max,saisies:r.n}})};
+  var inst="Tu es un directeur commercial expérimenté. Rédige, en français professionnel et direct, une analyse de ce bilan commercial puis des axes d'amélioration concrets pour chaque commercial, en texte prêt à être envoyé à l'équipe. Ne flatte pas. N'invente aucun chiffre. 250 mots maximum.\n\nDonnées :\n"+JSON.stringify(data);
+  try{
+    var r=await SAMPLE(inst,{cache:false});
+    var out=String(typeof r==="string"?r:((r&&r.text)||"")).trim();
+    if(out){RAI[m.key]=out;renderRecap();toast("Analyse rédigée.")}else toast("Pas de réponse pour le moment.");
+  }catch(e){toast("Rédaction impossible : "+errCode(e))}
+  b.disabled=false;b.textContent="Rédiger l'analyse avec Claude";
+});
+["rKind","rDate","rWho"].forEach(function(id){$(id).addEventListener("change",renderRecap)});
+/* Changer d'année garde le mois et le jour de la date de référence */
+$("rYear").addEventListener("change",function(){
+  var d=$("rDate").value||today();
+  $("rDate").value=$("rYear").value+d.slice(4);
+  renderRecap();
+});
+
+/* ==================== Tableaux de l'application ==================== */
+/* Tableau unique : sur téléphone, chaque ligne devient une carte (voir la feuille de style) */
+function tbl(heads,rows){
+  var h='<div class="scroll"><table class="resp"><thead><tr>'+heads.map(function(x){return '<th>'+x+'</th>'}).join('')+'</tr></thead><tbody>';
+  rows.forEach(function(r){
+    var cls=(r.tot?'tot ':'')+(r.cls||'');
+    h+='<tr'+(cls.trim()?' class="'+cls.trim()+'"':'')+'>'+r.cells.map(function(c,i){return '<td data-label="'+esc(heads[i])+'">'+c+'</td>'}).join('')+'</tr>';
+  });
+  return h+'</tbody></table></div>';
+}
+function renderAlerts(){
+  var el=$("dAlerts");if(!el)return;
+  var t=today(),msgs=[];
+  if(!CFG.dernierExport)msgs.push("Aucune sauvegarde enregistrée : pensez à télécharger la sauvegarde complète (Paramètres).");
+  else if((pd(t)-pd(CFG.dernierExport))/864e5>=7)msgs.push("Dernière sauvegarde le "+fr(CFG.dernierExport)+" : il est temps d'en faire une nouvelle.");
+  if(pd(t).getDay()===5)msgs.push("Vendredi : pensez au récap de la semaine.");
+  var last=period("m",t).b,daysLeft=(pd(last)-pd(t))/864e5;
+  if(daysLeft<=1)msgs.push("Fin de mois : pensez au récap mensuel et au rapport PDF.");
+  el.innerHTML=msgs.map(function(x){return '<div class="item" style="background:var(--midb);border-color:transparent;color:#7a4b00;font-weight:600">'+esc(x)+'</div>'}).join("");
+}
+function renderDash(){
+  renderAlerts();
+  var t=today(),ids=activeTeam().map(function(c){return bareId(c.id)});
+  var m=period("m",t),dy=stats(t,t,ids),mo=stats(m.a,m.b,ids);
+  var objD={ca:0,v:0},objM={ca:0,v:0},monthObj=0;
+  activeTeam().forEach(function(c){
+    var d=objOf(c,t,t),mm=objOf(c,m.a,m.b);
+    objD.ca+=d.ca;objD.v+=d.v;objM.ca+=mm.ca;objM.v+=mm.v;
+    monthObj+=objFor(c).ca*workdays(clip(m.a),m.b);
+  });
+  var proj=projection(mo.tot.ca,m.a,m.b);
+  var suivi=CFG.debut?"Suivi depuis le "+fr(CFG.debut):"Suivi depuis le début";
+  $("dPeriod").textContent=suivi+" · situation au "+fr(t)+" · cumul du "+fr(clip(m.a))+" à aujourd'hui";
+  var tiles=[
+    ["CA du jour",money(dy.tot.ca),pct(dy.tot.ca,objD.ca)+" % de l'objectif du jour"],
+    ["CA du mois",money(mo.tot.ca),pct(mo.tot.ca,objM.ca)+" % de l'objectif à date"],
+    ["Projection fin de mois",proj===null?"—":money(proj),(monthObj&&proj!==null)?pct(proj,monthObj)+" % de l'objectif du mois, au rythme actuel":"Aucun jour travaillé suivi"],
+    ["Clients visités (mois)",fmt(mo.tot.vis),pct(mo.tot.vis,objM.v)+" % de l'objectif"],
+    ["Taux actifs (mois)",taObj(mo.tot.act,mo.tot.vis)+" %","objectif : "+CFG.seuil+" % des visités = 100 %"]
+  ];
+  $("dTiles").innerHTML=tiles.map(function(x){return '<div class="tile"><div class="tl">'+x[0]+'</div><div class="tv">'+x[1]+'</div><div class="ts">'+x[2]+'</div></div>'}).join("");
+  var heads=["Commercial","CA mois","% obj. CA","Projection","Visités","Taux de visite","Actifs","Taux actifs","Produits moy. / max","7 derniers jours"];
+  var rows=activeTeam().map(function(c){
+    var id=bareId(c.id),st=mo.per[id],ob=objOf(c,m.a,m.b),rs=refStats(st.refs),pr=projection(st.ca,m.a,m.b);
+    return {cells:[esc(c.nom)+' <span class="ts">· '+esc(c.ville)+'</span>',fmt(st.ca),pill(pct(st.ca,ob.ca)),pr===null?"—":fmt(pr),fmt(st.vis),pill(pct(st.vis,ob.v)),fmt(st.act),pill(taObj(st.act,st.vis)),rs.avg+' / '+rs.max,spark(lastDays(id,7))]};
+  });
+  var trs=refStats(mo.tot.refs);
+  rows.push({tot:true,cells:["TOTAL ÉQUIPE",fmt(mo.tot.ca),pill(pct(mo.tot.ca,objM.ca)),proj===null?"—":fmt(proj),fmt(mo.tot.vis),pill(pct(mo.tot.vis,objM.v)),fmt(mo.tot.act),pill(taObj(mo.tot.act,mo.tot.vis)),trs.avg+' / '+trs.max,spark(lastDays(null,7))]});
+  $("dTable").innerHTML=activeTeam().length?tbl(heads,rows):'<div class="note">Aucun commercial actif. Ajoutez-en dans Paramètres.</div>';
+  var act=activeTeam();
+  /* semaines du mois écoulé (depuis le début du suivi) */
+  var A=clip(m.a),end=m.b<today()?m.b:today(),weeks=[];
+  var t0=addD(A,-((pd(A).getDay()+6)%7));
+  for(var t=t0;t<=end;t=addD(t,7)){
+    var wa=t<A?A:t,wb=addD(t,6);if(wb>end)wb=end;
+    if(wa<=wb)weeks.push({a:wa,b:wb});
+  }
+  var weekLabels=weeks.map(function(w,k){return "S"+(k+1)+" ("+fr(w.a).slice(0,5)+" au "+fr(w.b).slice(0,5)+")"});
+  var segs=weeks.map(function(w){return act.map(function(c){return stats(w.a,w.b,[bareId(c.id)]).per[bareId(c.id)].ca})});
+  $("dChart").innerHTML=histoChart(
+    act.map(function(c){return c.nom.split(" ")[0]+" · "+c.ville}),
+    act.map(function(c){var p=mo.per[bareId(c.id)];return fmt(p.act)+" actifs · "+taObj(p.act,p.vis)+" %"}),
+    segs,weekLabels,
+    act.map(function(c){return mo.per[bareId(c.id)].ca}),
+    act.map(function(c){return objOf(c,m.a,m.b).ca})
+  );
+}
+/* CA des n derniers jours (id = commercial, ou null pour toute l'équipe) */
+function lastDays(id,n){
+  var out=[],t=today();
+  for(var i=n-1;i>=0;i--){
+    var d=addD(t,-i),v=0;
+    if(d>=startDate())SAIS.forEach(function(x){if(x.date===d&&(id===null||bareId(x.com)===id))v+=num(x.ca)});
+    out.push(v);
+  }
+  return out;
+}
+function spark(vals){
+  var W=80,H=24,mx=Math.max.apply(null,vals.concat([1])),n=vals.length;
+  var pts=vals.map(function(v,i){return (n>1?i*W/(n-1):W/2).toFixed(1)+","+(H-3-(H-6)*v/mx).toFixed(1)}).join(" ");
+  var last=vals[n-1]||0;
+  return '<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" aria-label="Évolution du CA sur 7 jours"><polyline points="'+pts+'" fill="none" stroke="'+(last>0?"#2557c7":"#c9d3e6")+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>';
+}
+function renderSaisieList(){
+  var fd=$("fDate").value,fc=$("fCom").value;
+  var l=SAIS.filter(function(x){return (!fd||x.date===fd)&&(!fc||bareId(x.com)===fc)})
+    .sort(function(a,b){return a.date<b.date?1:-1}).slice(0,300);
+  if(!l.length){$("sList").innerHTML='<div class="note">Aucune saisie pour ce filtre.</div>';return}
+  var rows=l.map(function(x){
+    var c=byId(x.com);
+    return {cls:c?"":"alerte",cells:[fr(x.date),c?esc(c.nom):'<b style="color:var(--low)">non reconnu</b>',c?esc(c.ville):"—",fmt(x.ca),fmt(num(x.vis)),fmt(num(x.act)),fmt(num(x.ref)),'<div class="acts"><button data-edit="'+x.id+'">Modifier</button>'+delBtn("saisies",x.id)+'</div>']};
+  });
+  $("sList").innerHTML=tbl(["Date","Commercial","Ville","CA (Ar)","Visités","Actifs","Produits","Actions"],rows);
+}
+function renderStratList(){
+  var s=STRAT.slice().sort(function(a,b){var ea=a.ech||"9999-99-99",eb=b.ech||"9999-99-99";if(ea!==eb)return ea<eb?-1:1;return a.date<b.date?1:-1});
+  if(!s.length){$("aList").innerHTML='<div class="note">Aucune action enregistrée.</div>';return}
+  var css={"À faire":"st-todo","En cours":"st-en","Fait":"st-fait","Bloqué":"st-bloq"};
+  $("aList").innerHTML=tbl(["Échéance","Zone","Responsable","Action","Statut","Actions"],s.map(function(x){
+    return {cells:[x.ech?fr(x.ech):"—",esc(x.zone||"—"),esc(x.resp||"—"),esc(x.action),'<span class="stat '+(css[x.statut]||"st-todo")+'">'+esc(x.statut)+'</span>','<div class="acts">'+delBtn("strat",x.id)+'</div>']};
+  }));
+}
+function renderTeam(){
+  var rows=TEAM.slice().sort(function(a,b){return a.nom<b.nom?-1:1}).map(function(c){
+    var id=bareId(c.id);
+    return {cls:c.actif===false?"inactif":"",cells:[
+      esc(c.nom),esc(c.ville),esc(c.tel||"—"),
+      '<input data-money data-t="'+id+'" data-f="oc" value="'+(c.oc?fmt(c.oc):"")+'" placeholder="Général">',
+      '<input data-t="'+id+'" data-f="ov" type="number" value="'+(c.ov||"")+'" placeholder="Général">',
+      '<input type="checkbox" data-t="'+id+'" data-f="actif"'+(c.actif!==false?' checked':'')+' style="width:auto">',
+      '<button class="btn ghost" data-save="'+id+'">Enregistrer</button>'
+    ]};
+  });
+  $("pTeam").innerHTML=TEAM.length?tbl(["Nom complet","Ville","Téléphone","CA / jour","Visités / jour","Actif","Enregistrer"],rows):'<div class="note">Aucun commercial.</div>';
+}
+function renderJournal(){
+  var L=$("jList");if(!L)return;
+  var l=JOURNAL.slice(0,40);
+  if(!l.length){L.innerHTML='<div class="note">Aucune action enregistrée.</div>';return}
+  L.innerHTML=tbl(["Date et heure","Action","Détail","Annuler"],l.map(function(j){
+    var hr=new Date(j.at).toLocaleString("fr-FR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+    return {cells:[esc(hr),esc(j.quoi),esc(j.resume||""),'<button data-undo="'+j.id+'">Annuler</button>']};
+  }));
+}
+function recapTableHtml(m){
+  if(m.empty)return '<div class="note">Aucune donnée enregistrée sur cette période.</div>';
+  var ecart=function(a,b){if(!b)return "—";var p=Math.round((a-b)/b*100);return (p>=0?"+":"")+p+" %"};
+  var rows=m.rows.map(function(r){
+    return {cells:[esc(r.nom)+' <span class="ts">· '+esc(r.ville)+'</span>',fmt(r.st.ca),pill(pct(r.st.ca,r.ob.ca)),ecart(r.st.ca,r.ps.ca),fmt(r.st.vis),pill(pct(r.st.vis,r.ob.v)),fmt(r.st.act),pill(r.taux),r.rs.avg+' / '+r.rs.max]};
+  });
+  rows.push({tot:true,cells:["TOTAL ÉQUIPE",fmt(m.tot.ca),pill(pct(m.tot.ca,m.tob.ca)),ecart(m.tot.ca,m.totPrev.ca),fmt(m.tot.vis),pill(pct(m.tot.vis,m.tob.v)),fmt(m.tot.act),pill(m.taux),m.trs.avg+' / '+m.trs.max]});
+  return tbl(["Commercial","CA (Ar)","% obj. CA","Écart vs précédente","Visités","Taux de visite","Actifs","Taux actifs","Produits moy. / max"],rows);
+}
+
+/* Formatage automatique : tout champ « data-money » s'affiche avec des espaces de milliers */
+document.addEventListener("input",function(e){
+  var t=e.target;
+  if(t&&t.hasAttribute&&t.hasAttribute("data-money")){
+    var d=String(t.value).replace(/\D/g,"");
+    t.value=d?fmt(parseInt(d,10)):"";
+  }
+});
+
+/* Historique journalier : ouvrir ou fermer pour garder la page lisible */
+$("histoToggle").addEventListener("click",function(){
+  var box=$("histoBox"),open=box.style.display!=="none";
+  if(open){box.style.display="none";$("histoToggle").textContent="Voir l'historique journalier";}
+  else{box.style.display="block";$("histoToggle").textContent="Fermer l'historique journalier";renderJour();}
+});
+
+/* Rapports : chaque rubrique se déplie ou se replie ; boutons « Tout afficher » et « Tout fermer » */
+(function(){
+  var card=$("rTable").closest(".card");
+  var kids=Array.prototype.slice.call(card.children),groups=[],cur=null;
+  kids.forEach(function(el){
+    if(el.classList.contains("sec")){cur={head:el,items:[]};groups.push(cur)}
+    else if(cur)cur.items.push(el);
+  });
+  var folds=[];
+  groups.forEach(function(g){
+    var title=g.head.textContent.trim();
+    var d=document.createElement("details");d.className="fold";d.open=true;
+    d.style.cssText="margin:14px 0;border-top:1px solid var(--bd);padding-top:6px";
+    var sm=document.createElement("summary");sm.textContent=title;
+    sm.style.cssText="cursor:pointer;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding:8px 0;list-style:revert";
+    d.appendChild(sm);
+    card.insertBefore(d,g.head);
+    card.removeChild(g.head);
+    g.items.forEach(function(n){d.appendChild(n)});
+    if(/Historique journalier/i.test(title)){
+      d.addEventListener("toggle",function(){if(d.open)renderJour()});
+    }
+    folds.push(d);
+  });
+  /* l'historique journalier est déjà replié par ce menu : son ancien bouton est retiré */
+  var hb=$("histoToggle");if(hb&&hb.parentElement)hb.parentElement.style.display="none";
+  if($("histoBox"))$("histoBox").style.display="block";
+  /* un seul bouton : « Tout masquer » si une rubrique est ouverte, sinon « Tout afficher » */
+  var bar=document.createElement("div");bar.className="row";bar.style.cssText="margin:0 0 6px";
+  var tog=document.createElement("button");tog.type="button";tog.id="rToggleAll";tog.className="btn ghost";
+  var label=function(){var any=folds.some(function(d){return d.open});tog.textContent=any?"Tout masquer":"Tout afficher"};
+  tog.addEventListener("click",function(){
+    var any=folds.some(function(d){return d.open});
+    folds.forEach(function(d){d.open=!any});
+    label();
+  });
+  folds.forEach(function(d){d.addEventListener("toggle",label)});
+  label();
+  bar.appendChild(tog);
+  card.insertBefore(bar,$("rTable"));
+})();
+
+/* ==================== Serveur de données : Google Apps Script ==================== */
+/* Adresse « /exec » de l'application web (non secrète, mais ne la diffuse pas inutilement). */
+var SERVEUR_URL="PASTE_URL_EXEC_ICI";
+var CLE_JETON="pilotage_jeton";
+/* Le jeton n'est jamais écrit dans le code : il est demandé une fois, puis mémorisé sur cet appareil. */
+function jetonLocal(){
+  var j=localStorage.getItem(CLE_JETON);
+  if(!j){j=prompt("Jeton d'accès (demandé une seule fois sur cet appareil) :")||"";if(j)localStorage.setItem(CLE_JETON,j)}
+  return j;
+}
+/* Même interface que l'ancienne base (collection / doc / set / delete / get / onSnapshot),
+   mais les données viennent du serveur Google et sont gardées en mémoire, mises à jour toutes les 5 secondes. */
+function makeRemoteDB(){
+  var cache={},docL={},colL={},timer=null;
+  var snapCol=function(col){
+    var pre=col+"/";
+    return {docs:Object.keys(cache).filter(function(k){return k.indexOf(pre)===0}).map(function(k){
+      return {id:k.slice(pre.length),data:function(){return JSON.parse(JSON.stringify(cache[k]))}};
+    }),metadata:{fromCache:false}};
+  };
+  var snapDoc=function(path){
+    return {exists:!!cache[path],id:path.split("/").pop(),data:function(){return JSON.parse(JSON.stringify(cache[path]||{}))},metadata:{fromCache:false}};
+  };
+  var notify=function(path){
+    var col=path.split("/")[0];
+    (colL[col]||[]).forEach(function(cb){cb(snapCol(col))});
+    (docL[path]||[]).forEach(function(cb){cb(snapDoc(path))});
+  };
+  var notifyTout=function(){Object.keys(colL).forEach(function(c){(colL[c]||[]).forEach(function(cb){cb(snapCol(c))})});Object.keys(docL).forEach(function(p){(docL[p]||[]).forEach(function(cb){cb(snapDoc(p))})})};
+  var envoyer=function(corps){
+    corps.token=jetonLocal();
+    return fetch(SERVEUR_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain"},body:JSON.stringify(corps)}).then(function(){return true});
+  };
+  var lire=function(){
+    if(!jetonLocal()||SERVEUR_URL.indexOf("PASTE")===0)return Promise.resolve();
+    return fetch(SERVEUR_URL+"?op=lire&token="+encodeURIComponent(jetonLocal()),{cache:"no-store"})
+      .then(function(r){return r.json()})
+      .then(function(j){
+        if(!j.ok)throw new Error(j.erreur||"lecture refusée");
+        cache=j.docs||{};SYNC.online=true;SYNC.last=new Date().toLocaleTimeString("fr-FR");
+        notifyTout();setStatus();renderDiag();
+      })
+      .catch(function(e){SYNC.online=false;SYNC.lastErr="Serveur injoignable : "+errCode(e);setStatus();renderDiag()});
+  };
+  return {
+    collection:function(col){return {onSnapshot:function(cb){(colL[col]=colL[col]||[]).push(cb);setTimeout(function(){cb(snapCol(col))},0);return function(){}}}},
+    doc:function(path){return {
+      set:function(obj){cache[path]=JSON.parse(JSON.stringify(obj));notify(path);return envoyer({op:"set",path:path,data:obj})},
+      delete:function(){delete cache[path];notify(path);return envoyer({op:"delete",path:path})},
+      get:function(){return Promise.resolve(snapDoc(path))},
+      onSnapshot:function(cb){(docL[path]=docL[path]||[]).push(cb);setTimeout(function(){cb(snapDoc(path))},0);return function(){}}
+    }},
+    start:function(){lire();if(!timer)timer=setInterval(lire,5000)}
+  };
+}
+
+/* ==================== Démarrage ==================== */
+$("sDate").value=today();$("nDate").value=today();$("rDate").value=today();
+renderAll();
+/* Démarrage : données sur le serveur Google, sans service d'IA ni de téléchargement particulier */
+DB=makeRemoteDB();
+subscribe();
+DB.start();
+SAMPLE=null;
+DL=null;
+setStatus();renderDiag();
+
+</script>
 </body>
 </html>
